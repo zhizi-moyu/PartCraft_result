@@ -25,12 +25,12 @@ module angled_support() {
             [20, 0, 20]   // Point 5
         ],
         faces = [
-            [0, 1, 4],    // Base triangle
+            [0, 1, 4],    // Bottom triangle
             [1, 5, 4],    // Side triangle
             [1, 2, 5],    // Side triangle
             [2, 3, 5],    // Side triangle
             [3, 0, 4],    // Side triangle
-            [0, 3, 2, 1]  // Bottom face
+            [3, 4, 5]     // Top triangle
         ]
     );
 }
