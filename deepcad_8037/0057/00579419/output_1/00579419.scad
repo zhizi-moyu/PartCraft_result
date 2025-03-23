@@ -1,35 +1,11 @@
 
-// Define dimensions for the rectangular blocks
-block_width = 20;  // Width of the block
-block_height = 10; // Height of the block
-block_depth = 40;  // Depth of the block
+// Define dimensions for the rectangular block
+length = 70;  // Adjusted length to match the original model's longer proportions
+width = 40;   // Adjusted width to match the original model's proportions
+height = 20;  // Height remains the same
 
-// Function to create a rectangular block
-module rectangular_block() {
-    cube([block_width, block_depth, block_height], center = true);
-}
-
-// Position rectangular_block_1 as a standalone block
-translate([0, 0, 0])
-    rectangular_block();
-
-// Position rectangular_block_2 as a standalone block
-translate([50, 0, 0])
-    rectangular_block();
-
-// Position rectangular_block_3 as a standalone block
-translate([-50, 0, 0])
-    rectangular_block();
-
-// Position rectangular_block_4 as a standalone block
-translate([0, 50, 0])
-    rectangular_block();
-
-// Position rectangular_block_5 as a standalone block
-translate([0, -50, 0])
-    rectangular_block();
-
-// Position rectangular_block_6 as a standalone block
-translate([0, 0, 50])
-    rectangular_block();
+// Adjust the position and orientation of the block
+translate([0, 0, -10])  // Lower the block to match the original vertical position
+rotate([0, 0, 0])       // Align the block horizontally (remove tilt)
+cube([length, width, height]);
 
