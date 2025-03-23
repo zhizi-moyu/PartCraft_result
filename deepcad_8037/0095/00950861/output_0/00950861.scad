@@ -1,90 +1,22 @@
 
-// Parameters
-module central_cylinder() {
-    difference() {
-        cylinder(h=40, r=20, $fn=100); // Outer cylinder
-        cylinder(h=40, r=10, $fn=100); // Hollow interior
-    }
+// Define the dimensions of the rectangular plate
+plate_length = 50;  // Length of the plate
+plate_width = 10;   // Width of the plate
+plate_thickness = 2; // Thickness of the plate
+
+// Define the spacing between plates
+plate_spacing = 15; // Distance between adjacent plates
+
+// Function to create a rectangular plate
+module rectangular_plate() {
+    cube([plate_length, plate_width, plate_thickness], center = true);
 }
 
-module input_cylinder() {
-    difference() {
-        cylinder(h=20, r=20, $fn=100); // Outer cylinder
-        cylinder(h=20, r=10, $fn=100); // Hollow interior
-    }
-}
-
-module output_cylinder() {
-    difference() {
-        cylinder(h=20, r=20, $fn=100); // Outer cylinder
-        cylinder(h=20, r=10, $fn=100); // Hollow interior
-    }
-}
-
-module spacer_ring() {
-    difference() {
-        cylinder(h=5, r=20, $fn=100); // Outer ring
-        cylinder(h=5, r=15, $fn=100); // Hollow center
-    }
-}
-
-module flange_plate() {
-    difference() {
-        cylinder(h=5, r=20, $fn=100); // Outer plate
-        cylinder(h=5, r=15, $fn=100); // Hollow center
-        for (i = [0:3]) {
-            rotate([0, 0, i * 90]) translate([17, 0, 0]) cylinder(h=5, r=2, $fn=100); // Bolt holes
-        }
-    }
-}
-
-module nut() {
-    cylinder(h=5, r=3, $fn=6); // Hexagonal nut
-}
-
-module bolt() {
-    union() {
-        cylinder(h=25, r=2, $fn=100); // Bolt shaft
-        translate([0, 0, 25]) cylinder(h=5, r=3, $fn=6); // Bolt head
-    }
-}
-
-// Assembly
-module flexible_coupling() {
-    // Layer 1: Input Cylinder
-    translate([0, 0, 90]) input_cylinder();
-
-    // Layer 2: First Flange Plate with Nuts
-    translate([0, 0, 85]) flange_plate();
-    for (i = [0:3]) {
-        rotate([0, 0, i * 90]) translate([17, 0, 85]) nut();
-    }
-
-    // Layer 3: First Spacer Ring with Bolts
-    translate([0, 0, 80]) spacer_ring();
-    for (i = [0:3]) {
-        rotate([0, 0, i * 90]) translate([17, 0, 80]) bolt();
-    }
-
-    // Layer 4: Central Cylinder
-    translate([0, 0, 40]) central_cylinder();
-
-    // Layer 5: Second Spacer Ring with Bolts
-    translate([0, 0, 0]) spacer_ring();
-    for (i = [0:3]) {
-        rotate([0, 0, i * 90]) translate([17, 0, 0]) bolt();
-    }
-
-    // Layer 6: Second Flange Plate with Nuts
-    translate([0, 0, -5]) flange_plate();
-    for (i = [0:3]) {
-        rotate([0, 0, i * 90]) translate([17, 0, -5]) nut();
-    }
-
-    // Layer 7: Output Cylinder
-    translate([0, 0, -25]) output_cylinder();
-}
-
-// Render the flexible coupling assembly
-flexible_coupling();
+// Generate the 3D model with six rectangular plates
+translate([0, 0, 0]) rectangular_plate(); // Plate 1
+translate([0, plate_spacing, 0]) rectangular_plate(); // Plate 2
+translate([0, 2 * plate_spacing, 0]) rectangular_plate(); // Plate 3
+translate([0, 3 * plate_spacing, 0]) rectangular_plate(); // Plate 4
+translate([0, 4 * plate_spacing, 0]) rectangular_plate(); // Plate 5
+translate([0, 5 * plate_spacing, 0]) rectangular_plate(); // Plate 6
 
