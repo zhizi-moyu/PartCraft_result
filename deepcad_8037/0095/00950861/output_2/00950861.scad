@@ -1,94 +1,86 @@
+// Parameters for components
+module central_shaft() {
+    cylinder(h=60, r=8, $fn=100); // Adjusted central shaft dimensions
+}
 
-// Parameters
-module central_cylinder() {
-    // Adjusted to remove tapering and ensure uniform cylindrical shape
+module input_shaft() {
     difference() {
-        cylinder(h=50, r=20, $fn=100); // Outer cylinder
-        cylinder(h=50, r=10, $fn=100); // Hollow interior
+        cylinder(h=25, r=8, $fn=100); // Adjusted input shaft dimensions
+        translate([0, 0, -1]) cylinder(h=27, r=4, $fn=100); // Reduced hollow center
     }
 }
 
-module input_cylinder() {
-    // Adjusted to elongate the cylinder and make the flat end surface more distinct
-    cylinder(h=30, r=20, $fn=100); // Elongated cylindrical shape
-}
-
-module output_cylinder() {
-    // Adjusted to extend the cylinder and improve symmetry
-    translate([0, 0, -30]) difference() {
-        cylinder(h=30, r=20, $fn=100); // Outer cylinder
-        cylinder(h=30, r=10, $fn=100); // Hollow interior
+module output_shaft() {
+    difference() {
+        cylinder(h=40, r=8, $fn=100); // Adjusted output shaft dimensions
+        translate([0, 0, -1]) cylinder(h=42, r=4, $fn=100); // Reduced hollow center
     }
 }
 
 module spacer_ring() {
-    // Adjusted to increase the thickness of the spacer ring
     difference() {
-        cylinder(h=15, r=20, $fn=100); // Outer ring with increased thickness
-        cylinder(h=15, r=15, $fn=100); // Hollow center
+        cylinder(h=3, r=12, $fn=100); // Adjusted outer ring dimensions
+        translate([0, 0, -1]) cylinder(h=5, r=8, $fn=100); // Adjusted inner hollow
     }
 }
 
 module flange_plate() {
-    // Adjusted to increase the number of bolt holes and ensure uniform distribution
     difference() {
-        cylinder(h=5, r=20, $fn=100); // Outer plate
-        cylinder(h=5, r=15, $fn=100); // Hollow center
-        for (i = [0:7]) { // Increased number of bolt holes to 8
-            rotate([0, 0, i * 45]) translate([17, 0, 0]) cylinder(h=5, r=2, $fn=100); // Bolt holes
+        cylinder(h=3, r=18, $fn=100); // Adjusted flange plate thickness
+        translate([0, 0, -1]) cylinder(h=5, r=8, $fn=100); // Adjusted inner hollow
+        for (angle = [0:60:300]) { // Increased number of bolt holes
+            translate([14*cos(angle), 14*sin(angle), -1])
+                cylinder(h=5, r=1.5, $fn=100); // Adjusted bolt hole size
         }
     }
 }
 
 module nut() {
-    // Adjusted to refine the hexagonal shape and sharpen edges
-    cylinder(h=5, r=3, $fn=6); // Refined hexagonal nut
+    cylinder(h=3, r=2.5, $fn=6); // Adjusted nut size and shape
 }
 
 module bolt() {
-    // Adjusted to lengthen the bolt and make threading more distinct
     union() {
-        cylinder(h=35, r=2, $fn=100); // Bolt shaft with increased length
-        translate([0, 0, 35]) cylinder(h=5, r=3, $fn=6); // Bolt head
+        cylinder(h=25, r=1.5, $fn=100); // Adjusted bolt shaft dimensions
+        translate([0, 0, 25]) cylinder(h=3, r=2.5, $fn=6); // Adjusted bolt head size
     }
 }
 
 // Assembly
 module flexible_coupling() {
-    // Layer 1: Input Cylinder
-    translate([0, 0, 95]) input_cylinder();
+    // Layer 1: Input shaft
+    translate([0, 0, 90]) input_shaft();
 
-    // Layer 2: First Flange Plate with Nuts
-    translate([0, 0, 90]) flange_plate();
-    for (i = [0:7]) { // Adjusted for increased bolt holes
-        rotate([0, 0, i * 45]) translate([17, 0, 90]) nut();
+    // Layer 2: First flange plate and nuts
+    translate([0, 0, 87]) flange_plate();
+    for (angle = [0:60:300]) {
+        translate([14*cos(angle), 14*sin(angle), 87]) nut();
     }
 
-    // Layer 3: First Spacer Ring with Bolts
-    translate([0, 0, 80]) spacer_ring();
-    for (i = [0:7]) { // Adjusted for increased bolt holes
-        rotate([0, 0, i * 45]) translate([17, 0, 80]) bolt();
+    // Layer 3: First spacer ring and bolts
+    translate([0, 0, 84]) spacer_ring();
+    for (angle = [0:60:300]) {
+        translate([14*cos(angle), 14*sin(angle), 84]) bolt();
     }
 
-    // Layer 4: Central Cylinder
-    translate([0, 0, 40]) central_cylinder();
+    // Layer 4: Central shaft
+    translate([0, 0, 50]) central_shaft();
 
-    // Layer 5: Second Spacer Ring with Bolts
-    translate([0, 0, 0]) spacer_ring();
-    for (i = [0:7]) { // Adjusted for increased bolt holes
-        rotate([0, 0, i * 45]) translate([17, 0, 0]) bolt();
+    // Layer 5: Second spacer ring and bolts
+    translate([0, 0, 20]) spacer_ring();
+    for (angle = [0:60:300]) {
+        translate([14*cos(angle), 14*sin(angle), 20]) bolt();
     }
 
-    // Layer 6: Second Flange Plate with Nuts
-    translate([0, 0, -5]) flange_plate();
-    for (i = [0:7]) { // Adjusted for increased bolt holes
-        rotate([0, 0, i * 45]) translate([17, 0, -5]) nut();
+    // Layer 6: Second flange plate and nuts
+    translate([0, 0, 17]) flange_plate();
+    for (angle = [0:60:300]) {
+        translate([14*cos(angle), 14*sin(angle), 17]) nut();
     }
 
-    // Layer 7: Output Cylinder
-    translate([0, 0, -30]) output_cylinder();
+    // Layer 7: Output shaft
+    translate([0, 0, 0]) output_shaft();
 }
 
-// Render the flexible coupling assembly
+// Render the flexible coupling
 flexible_coupling();
-
