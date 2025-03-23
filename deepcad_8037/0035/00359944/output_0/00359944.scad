@@ -1,110 +1,93 @@
 
-// Parameters
-plate_thickness = 2; // Thickness of triangular plates
-spacer_thickness = 1; // Thickness of spacers
-bolt_diameter = 2; // Diameter of bolts
-nut_size = 4; // Size of nuts
-plate_side_length = 50; // Side length of triangular plates
-hole_diameter = 10; // Diameter of central hole in plates
-vertex_hole_diameter = 4; // Diameter of vertex holes in plates
-spacer_outer_diameter = hole_diameter; // Outer diameter of spacers
-spacer_inner_diameter = bolt_diameter; // Inner diameter of spacers
-bolt_length = 20; // Length of bolts
-
-// Helper function to create a triangular plate
-module triangular_plate() {
+// Parameters for components
+module central_craft() {
     difference() {
-        // Create the triangular plate
-        polygon(points=[[0,0], [plate_side_length,0], [plate_side_length/2,plate_side_length*sqrt(3)/2]]);
-        linear_extrude(height=plate_thickness) {
-            // Create the central hole
-            translate([plate_side_length/2, plate_side_length*sqrt(3)/4]) {
-                circle(d=hole_diameter);
-            }
-            // Create the vertex holes
-            translate([0,0]) {
-                circle(d=vertex_hole_diameter);
-            }
-            translate([plate_side_length,0]) {
-                circle(d=vertex_hole_diameter);
-            }
-            translate([plate_side_length/2, plate_side_length*sqrt(3)/2]) {
-                circle(d=vertex_hole_diameter);
-            }
+        cylinder(h = 20, r = 10, $fn = 100); // Outer cylinder
+        translate([0, 0, -1]) cylinder(h = 22, r = 5, $fn = 100); // Central hole
+    }
+}
+
+module input_craft() {
+    difference() {
+        cylinder(h = 15, r1 = 10, r2 = 8, $fn = 100); // Tapered cylinder
+        translate([0, 0, -1]) cylinder(h = 17, r = 5, $fn = 100); // Central hole
+    }
+}
+
+module output_craft() {
+    difference() {
+        cylinder(h = 15, r1 = 8, r2 = 10, $fn = 100); // Tapered cylinder
+        translate([0, 0, -1]) cylinder(h = 17, r = 5, $fn = 100); // Central hole
+    }
+}
+
+module spacer_ring() {
+    difference() {
+        cylinder(h = 2, r = 10, $fn = 100); // Outer ring
+        translate([0, 0, -1]) cylinder(h = 4, r = 8, $fn = 100); // Inner hole
+    }
+}
+
+module flange_plate() {
+    difference() {
+        cylinder(h = 3, r = 12, $fn = 100); // Outer flange
+        translate([0, 0, -1]) cylinder(h = 5, r = 8, $fn = 100); // Central hole
+        for (angle = [0, 90, 180, 270]) {
+            rotate([0, 0, angle]) translate([9, 0, -1]) cylinder(h = 5, r = 1, $fn = 100); // Bolt holes
         }
     }
 }
 
-// Helper function to create a spacer
-module spacer() {
-    difference() {
-        // Create the outer ring
-        cylinder(d=spacer_outer_diameter, h=spacer_thickness);
-        // Create the inner hole
-        cylinder(d=spacer_inner_diameter, h=spacer_thickness);
-    }
-}
-
-// Helper function to create a bolt
-module bolt() {
-    cylinder(d=bolt_diameter, h=bolt_length);
-}
-
-// Helper function to create a nut
 module nut() {
-    difference() {
-        // Create the hexagonal prism
-        rotate([0,0,30]) {
-            linear_extrude(height=plate_thickness) {
-                polygon(points=[[0,0], [nut_size,0], [nut_size*cos(60),nut_size*sin(60)], [0,nut_size*sin(60)], [-nut_size*cos(60),nut_size*sin(60)], [-nut_size,0]]);
-            }
-        }
-        // Create the internal threading hole
-        cylinder(d=bolt_diameter, h=plate_thickness);
+    cylinder(h = 3, r = 2, $fn = 6); // Hexagonal nut
+}
+
+module bolt() {
+    union() {
+        cylinder(h = 10, r = 1, $fn = 100); // Bolt shaft
+        translate([0, 0, 10]) cylinder(h = 2, r = 2, $fn = 100); // Bolt head
     }
 }
 
 // Assembly
-module assembly() {
-    // Layer 1: Top triangular plate
-    translate([0,0,0]) {
-        triangular_plate();
+module flexible_coupling() {
+    translate([0, 0, 0]) input_craft(); // Layer 1
+
+    translate([0, 0, -15]) flange_plate(); // Layer 2
+    for (angle = [0, 90, 180, 270]) {
+        rotate([0, 0, angle]) translate([9, 0, -15]) nut();
     }
-    // Layer 2: Spacer
-    translate([0,0,plate_thickness]) {
-        spacer();
+
+    translate([0, 0, -18]) spacer_ring(); // Layer 3
+    for (angle = [0, 90, 180, 270]) {
+        rotate([0, 0, angle]) translate([9, 0, -18]) bolt();
     }
-    // Layer 3: Second triangular plate
-    translate([0,0,plate_thickness+spacer_thickness]) {
-        triangular_plate();
+
+    translate([0, 0, -20]) flange_plate(); // Layer 4
+    for (angle = [0, 90, 180, 270]) {
+        rotate([0, 0, angle]) translate([9, 0, -20]) nut();
     }
-    // Layer 4: Spacer
-    translate([0,0,2*plate_thickness+spacer_thickness]) {
-        spacer();
+
+    translate([0, 0, -23]) central_craft(); // Layer 5
+
+    translate([0, 0, -43]) flange_plate(); // Layer 6
+    for (angle = [0, 90, 180, 270]) {
+        rotate([0, 0, angle]) translate([9, 0, -43]) nut();
     }
-    // Layer 5: Third triangular plate
-    translate([0,0,2*plate_thickness+2*spacer_thickness]) {
-        triangular_plate();
+
+    translate([0, 0, -46]) spacer_ring(); // Layer 7
+    for (angle = [0, 90, 180, 270]) {
+        rotate([0, 0, angle]) translate([9, 0, -46]) bolt();
     }
-    // Layer 6: Spacer
-    translate([0,0,3*plate_thickness+2*spacer_thickness]) {
-        spacer();
+
+    translate([0, 0, -48]) flange_plate(); // Layer 8
+    for (angle = [0, 90, 180, 270]) {
+        rotate([0, 0, angle]) translate([9, 0, -48]) nut();
     }
-    // Layer 7: Bottom triangular plate
-    translate([0,0,3*plate_thickness+3*spacer_thickness]) {
-        triangular_plate();
-    }
-    // Fastening: Bolts and nuts
-    for (i = [0:2]) {
-        translate([plate_side_length/2*cos(i*120), plate_side_length/2*sin(i*120), 0]) {
-            bolt();
-            translate([0,0,bolt_length]) {
-                nut();
-            }
-        }
-    }
+
+    translate([0, 0, -51]) output_craft(); // Layer 9
 }
 
-// Render the assembly
-assembly();
+// Render the full assembly
+flexible_coupling();
 
