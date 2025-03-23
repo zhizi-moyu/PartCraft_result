@@ -1,4 +1,3 @@
-
 // Define dimensions for the step block
 module step_block() {
     // Bottommost level
@@ -15,4 +14,3 @@ module step_block() {
 
 // Call the step_block module to render the model
 step_block();
-
