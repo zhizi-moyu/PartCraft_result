@@ -1,38 +1,38 @@
 
 // Define dimensions for each block
-large_rectangular_block_length = 100;
-large_rectangular_block_width = 50;
-large_rectangular_block_height = 20;
+large_block_size = [60, 30, 10];  // Length, Width, Height
+medium_block_size = [40, 20, 10];
+small_block_size = [20, 10, 10];
 
-medium_rectangular_block_length = 50;
-medium_rectangular_block_width = 50;
-medium_rectangular_block_height = 30;
+// Define positions for each layer
+layer_1_height = large_block_size[2] + medium_block_size[2];  // Topmost layer
+layer_2_height = large_block_size[2];                        // Middle layer
+layer_3_height = 0;                                          // Bottommost layer
 
-small_rectangular_block_length = 30;
-small_rectangular_block_width = 30;
-small_rectangular_block_height = 20; // Adjusted height to match the original model proportions
-
-// Layer 1: Large rectangular block (base)
-translate([0, 0, 0]) {
-    cube([large_rectangular_block_length, large_rectangular_block_width, large_rectangular_block_height]);
+// Function to create a rectangular block
+module rectangular_block(size, position) {
+    translate(position)
+        cube(size, center = true);
 }
 
-// Layer 2: Medium rectangular blocks (side by side above the base)
-translate([0, 0, large_rectangular_block_height]) {
-    cube([medium_rectangular_block_length, medium_rectangular_block_width, medium_rectangular_block_height]);
-}
-translate([medium_rectangular_block_length, 0, large_rectangular_block_height]) {
-    cube([medium_rectangular_block_length, medium_rectangular_block_width, medium_rectangular_block_height]);
+// Assemble the model
+module flexible_coupling() {
+    // Layer 3: Large rectangular block
+    for (i = [-1, 1]) {  // Two blocks, mirrored along the X-axis
+        rectangular_block(large_block_size, [i * (large_block_size[0] / 2 + 5), 0, layer_3_height]);
+    }
+
+    // Layer 2: Medium rectangular block
+    for (i = [-1, 1]) {  // Two blocks, mirrored along the X-axis
+        rectangular_block(medium_block_size, [i * (medium_block_size[0] / 2 + 5), 0, layer_2_height]);
+    }
+
+    // Layer 1: Small rectangular block
+    for (i = [-1, 1]) {  // Two blocks, mirrored along the X-axis
+        rectangular_block(small_block_size, [i * (small_block_size[0] / 2 + 5), 0, layer_1_height]);
+    }
 }
 
-// Layer 3: Small rectangular blocks (side by side above the medium blocks)
-translate([0, 0, large_rectangular_block_height + medium_rectangular_block_height]) {
-    cube([small_rectangular_block_length, small_rectangular_block_width, small_rectangular_block_height]);
-}
-translate([small_rectangular_block_length, 0, large_rectangular_block_height + medium_rectangular_block_height]) {
-    cube([small_rectangular_block_length, small_rectangular_block_width, small_rectangular_block_height]);
-}
-translate([2 * small_rectangular_block_length, 0, large_rectangular_block_height + medium_rectangular_block_height]) {
-    cube([small_rectangular_block_length, small_rectangular_block_width, small_rectangular_block_height]);
-}
+// Render the model
+flexible_coupling();
 
