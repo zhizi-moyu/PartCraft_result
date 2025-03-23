@@ -1,42 +1,64 @@
 
-// Parameters for the rectangular block
-block_length = 60;  // Length of the block
-block_width = 30;   // Width of the block
-block_height = 40;  // Height of the block
-frame_thickness = 5; // Thickness of the outer frame
-cutout_width = 20;  // Width of the rectangular cutouts
-cutout_height = 10; // Height of the rectangular cutouts
-cutout_spacing = 10; // Spacing between the two cutouts
-taper_angle = 15;   // Angle for the inward slope of the cutouts
+// Parameters for the model
+outer_frame_length = 60;  // Length of the outer frame
+outer_frame_width = 30;   // Width of the outer frame
+outer_frame_height = 40;  // Height of the outer frame
+outer_frame_thickness = 3; // Thickness of the outer frame walls
 
-module tapered_cutout(length, width, height, angle) {
+inner_divider_thickness = 3; // Thickness of the inner dividers
+inner_divider_spacing = outer_frame_height / 2; // Spacing between dividers (adjusted to split into two equal sections)
+
+side_wall_thickness = 2; // Adjusted thickness of the side walls
+
+// Module for the outer frame
+module outer_frame() {
     difference() {
-        cube([length, width, height], center = true);
-        translate([0, 0, height / 2])
-            rotate([angle, 0, 0])
-            cube([length, width, height * 2], center = true);
-        translate([0, 0, -height / 2])
-            rotate([-angle, 0, 0])
-            cube([length, width, height * 2], center = true);
+        // Outer block
+        cube([outer_frame_length, outer_frame_width, outer_frame_height], center = true);
+        // Hollowed-out inner block with larger front and back openings
+        translate([0, 0, 0])
+            cube([outer_frame_length - 2 * outer_frame_thickness, 
+                  outer_frame_width - 2 * outer_frame_thickness, 
+                  outer_frame_height], center = true);
+        // Front opening
+        translate([-outer_frame_length / 2, -outer_frame_width / 2, 0])
+            cube([outer_frame_length / 2, outer_frame_width, outer_frame_height], center = false);
+        // Back opening
+        translate([outer_frame_length / 2, -outer_frame_width / 2, 0])
+            cube([outer_frame_length / 2, outer_frame_width, outer_frame_height], center = false);
     }
 }
 
-module rectangular_block_with_cutouts() {
-    // Outer block with softened edges
-    difference() {
-        minkowski() {
-            cube([block_length, block_width, block_height], center = true);
-            sphere(frame_thickness / 2);
-        }
-        
-        // Create the two tapered rectangular cutouts
-        translate([0, 0, block_height / 4])
-            tapered_cutout(block_length, cutout_width, cutout_height, taper_angle);
-        translate([0, 0, -block_height / 4])
-            tapered_cutout(block_length, cutout_width, cutout_height, taper_angle);
-    }
+// Module for an inner divider
+module inner_divider(position_z) {
+    translate([0, 0, position_z])
+        cube([outer_frame_length - 2 * outer_frame_thickness, 
+              outer_frame_width - 2 * outer_frame_thickness, 
+              inner_divider_thickness], center = true);
+}
+
+// Module for a side wall
+module side_wall(position_x) {
+    translate([position_x, 0, 0])
+        cube([side_wall_thickness, 
+              outer_frame_width, 
+              outer_frame_height], center = true);
+}
+
+// Assemble the model
+module flexible_coupling() {
+    // Layer 1: Outer frame
+    outer_frame();
+    
+    // Layer 2: Inner dividers (adjusted to split into two equal sections)
+    inner_divider(-inner_divider_spacing / 2);
+    inner_divider(inner_divider_spacing / 2);
+    
+    // Layer 3: Side walls (adjusted thickness and alignment)
+    side_wall(-outer_frame_length / 2 + side_wall_thickness / 2);
+    side_wall(outer_frame_length / 2 - side_wall_thickness / 2);
 }
 
 // Render the model
-rectangular_block_with_cutouts();
+flexible_coupling();
 
