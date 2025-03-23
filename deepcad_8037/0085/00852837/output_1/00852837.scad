@@ -1,38 +1,27 @@
 
-// Define dimensions for each block
-large_block_size = [60, 30, 10];  // Length, Width, Height
-medium_block_size = [40, 20, 10];
-small_block_size = [20, 10, 10];
+// Define dimensions for the blocks
+large_block = [60, 30, 20];  // Length, Width, Height
+medium_block = [40, 20, 20];
+small_block = [20, 20, 20];
 
-// Define positions for each layer
-layer_1_height = large_block_size[2] + medium_block_size[2];  // Topmost layer
-layer_2_height = large_block_size[2];                        // Middle layer
-layer_3_height = 0;                                          // Bottommost layer
+// Define spacing between blocks
+spacing = 5;
 
-// Function to create a rectangular block
-module rectangular_block(size, position) {
-    translate(position)
-        cube(size, center = true);
-}
+// Layer 1: Small rectangular blocks
+translate([-(small_block[0] + spacing) / 2, 0, large_block[2] + medium_block[2]])
+    cube(small_block, center = true);
+translate([(small_block[0] + spacing) / 2, 0, large_block[2] + medium_block[2]])
+    cube(small_block, center = true);
 
-// Assemble the model
-module flexible_coupling() {
-    // Layer 3: Large rectangular block
-    for (i = [-1, 1]) {  // Two blocks, mirrored along the X-axis
-        rectangular_block(large_block_size, [i * (large_block_size[0] / 2 + 5), 0, layer_3_height]);
-    }
+// Layer 2: Medium rectangular blocks
+translate([-(medium_block[0] + spacing) / 2, 0, large_block[2]])
+    cube(medium_block, center = true);
+translate([(medium_block[0] + spacing) / 2, 0, large_block[2]])
+    cube(medium_block, center = true);
 
-    // Layer 2: Medium rectangular block
-    for (i = [-1, 1]) {  // Two blocks, mirrored along the X-axis
-        rectangular_block(medium_block_size, [i * (medium_block_size[0] / 2 + 5), 0, layer_2_height]);
-    }
-
-    // Layer 1: Small rectangular block
-    for (i = [-1, 1]) {  // Two blocks, mirrored along the X-axis
-        rectangular_block(small_block_size, [i * (small_block_size[0] / 2 + 5), 0, layer_1_height]);
-    }
-}
-
-// Render the model
-flexible_coupling();
+// Layer 3: Large rectangular blocks
+translate([-(large_block[0] + spacing) / 2, 0, 0])
+    cube(large_block, center = true);
+translate([(large_block[0] + spacing) / 2, 0, 0])
+    cube(large_block, center = true);
 
