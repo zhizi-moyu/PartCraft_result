@@ -1,16 +1,11 @@
 
-// Parameters for the rectangular block
-block_length = 240;  // Adjusted length of the block to match the original model
-block_width = 20;    // Width of the block
-block_height = 10;   // Height of the block
+// Define the dimensions of the rectangular block
+length = 80;  // Increased length to match the original model proportions
+width = 20;   // Width remains unchanged
+height = 10;  // Reduced height to match the original model proportions
 
-// Function to create a single rectangular block
-module rectangular_block() {
-    cube([block_length, block_width, block_height], center = true);
-}
-
-// Generate the single continuous rectangular block
-translate([0, 0, block_height / 2]) {
-    rectangular_block();
-}
+// Adjust the position and orientation of the block
+translate([0, 0, 0])  // Adjusted vertical position to align with the original model
+rotate([0, 0, 0])      // Ensured no rotation to align the block horizontally
+cube([length, width, height], center = true);
 
