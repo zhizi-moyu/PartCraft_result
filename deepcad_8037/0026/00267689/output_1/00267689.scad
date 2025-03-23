@@ -1,24 +1,46 @@
 
-// Parameters for the rectangular hollow bar
-length = 100; // Length of the bar
-width = 20;   // Outer width of the bar
-height = 10;  // Outer height of the bar
-wall_thickness = 2; // Thickness of the walls
-
-// Function to create a rectangular hollow bar with sharper edges and uniform hollow interior
-module rectangular_hollow_bar() {
+// Function to create a rectangular hollow bar
+module rectangular_hollow_bar(length, width, height, wall_thickness) {
     difference() {
-        // Outer rectangular prism with sharp edges
+        // Outer rectangular prism
         cube([length, width, height], center = true);
-        // Inner hollow space with uniform dimensions
-        translate([0, 0, 0]) {
+        // Inner hollow section
+        translate([wall_thickness, wall_thickness, wall_thickness])
             cube([length - 2 * wall_thickness, width - 2 * wall_thickness, height - 2 * wall_thickness], center = true);
-        }
     }
 }
 
-// Adjust the position of the rectangular hollow bar to align perfectly
-translate([0, 0, 0]) {
-    rectangular_hollow_bar();
-}
+// Parameters for the rectangular hollow bar
+length = 120; // Adjusted length to match the original model
+width = 20;   // Width of the bar
+height = 20;  // Height of the bar
+wall_thickness = 3; // Adjusted wall thickness to make the hollow interior wider
+
+// Positional offsets for stacking the bars
+offset_z = 25; // Vertical offset between layers
+offset_y = 0;  // Horizontal offset to ensure uniform spacing
+
+// Layer 1
+translate([0, offset_y, 5 * offset_z])
+    rectangular_hollow_bar(length, width, height, wall_thickness);
+
+// Layer 2
+translate([0, offset_y, 4 * offset_z])
+    rectangular_hollow_bar(length, width, height, wall_thickness);
+
+// Layer 3
+translate([0, offset_y, 3 * offset_z])
+    rectangular_hollow_bar(length, width, height, wall_thickness);
+
+// Layer 4
+translate([0, offset_y, 2 * offset_z])
+    rectangular_hollow_bar(length, width, height, wall_thickness);
+
+// Layer 5
+translate([0, offset_y, 1 * offset_z])
+    rectangular_hollow_bar(length, width, height, wall_thickness);
+
+// Layer 6
+translate([0, offset_y, 0 * offset_z])
+    rectangular_hollow_bar(length, width, height, wall_thickness);
 
