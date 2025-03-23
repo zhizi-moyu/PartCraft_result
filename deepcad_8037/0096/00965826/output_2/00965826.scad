@@ -1,32 +1,32 @@
 // Parameters for the components
 module central_craft() {
-    cylinder(h = 20, r = 10, $fn = 100); // Central cylindrical component
+    cylinder(h = 20, r = 10, $fn = 100); // Central cylindrical component with uniform diameter
 }
 
 module input_craft() {
     difference() {
-        cylinder(h = 15, r = 10, $fn = 100); // Input craft cylinder
+        cylinder(h = 15, r = 10, $fn = 100); // Input craft cylinder with uniform diameter
         translate([0, 0, -1]) cylinder(h = 15, r = 7, $fn = 100); // Enlarged hollow center
     }
 }
 
 module output_craft() {
     difference() {
-        cylinder(h = 15, r = 10, $fn = 100); // Output craft cylinder
+        cylinder(h = 15, r = 10, $fn = 100); // Output craft cylinder with uniform diameter
         translate([0, 0, -1]) cylinder(h = 15, r = 7, $fn = 100); // Enlarged hollow center
     }
 }
 
 module spacer_ring() {
     difference() {
-        cylinder(h = 2, r = 10, $fn = 100); // Spacer ring
+        cylinder(h = 2, r = 10, $fn = 100); // Thin, flat spacer ring
         cylinder(h = 2, r = 8, $fn = 100); // Hollow center
     }
 }
 
 module flange_plate() {
     difference() {
-        cylinder(h = 5, r = 10, $fn = 100); // Flange plate
+        cylinder(h = 5, r = 10, $fn = 100); // Flat flange plate
         cylinder(h = 5, r = 8, $fn = 100); // Hollow center
         for (i = [0:7]) {
             rotate([0, 0, i * 45]) translate([7, 0, 0]) cylinder(h = 5, r = 1, $fn = 100); // Bolt holes
