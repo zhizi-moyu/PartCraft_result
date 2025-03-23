@@ -10,15 +10,15 @@ module tapered_ring(inner_diameter, outer_diameter, height, taper_height) {
         // Tapered edge
         translate([0, 0, height - taper_height])
         rotate([0, 0, 0])
-        cylinder(h=taper_height, r1=outer_diameter/2, r2=0, $fn=100);
+        cylinder(h=taper_height, r1=outer_diameter/2, r2=outer_diameter/6, $fn=100); // Adjust tapering for sharper edge and teardrop profile
     }
 }
 
 // Parameters for the tapered ring
-inner_diameter = 20; // Inner diameter of the ring
-outer_diameter = 30; // Outer diameter of the ring
-height = 5;          // Height of the ring
-taper_height = 5;    // Height of the tapered edge
+inner_diameter = 22; // Increased inner diameter to match original model proportions
+outer_diameter = 28; // Outer diameter remains unchanged
+height = 3;          // Reduced height for thinner ring
+taper_height = 7;    // Increased taper height for sharper edge and teardrop profile
 
 // Stack of tapered rings
 translate([0, 0, 0]) tapered_ring(inner_diameter, outer_diameter, height, taper_height); // Layer 1
