@@ -1,31 +1,38 @@
 
 // Define dimensions for each block
-large_block_length = 60;  // Length of the large rectangular block
-large_block_width = 30;   // Width of the large rectangular block
-large_block_height = 20;  // Height of the large rectangular block
+large_rectangular_block_length = 100;
+large_rectangular_block_width = 50;
+large_rectangular_block_height = 20;
 
-medium_block_length = 40; // Length of the medium rectangular block
-medium_block_width = 20;  // Width of the medium rectangular block
-medium_block_height = 15; // Height of the medium rectangular block
+medium_rectangular_block_length = 50;
+medium_rectangular_block_width = 50;
+medium_rectangular_block_height = 30;
 
-small_block_length = 20;  // Length of the small rectangular block
-small_block_width = 10;   // Width of the small rectangular block
-small_block_height = 10;  // Height of the small rectangular block
+small_rectangular_block_length = 30;
+small_rectangular_block_width = 30;
+small_rectangular_block_height = 20; // Adjusted height to match the original model proportions
 
-// Position offsets
-layer_1_offset = [0, 0, large_block_height + medium_block_height]; // Position of the small block
-layer_2_offset = [0, 0, large_block_height];                       // Position of the medium block
-layer_3_offset = [0, 0, 0];                                        // Position of the large block
+// Layer 1: Large rectangular block (base)
+translate([0, 0, 0]) {
+    cube([large_rectangular_block_length, large_rectangular_block_width, large_rectangular_block_height]);
+}
 
-// Create the large rectangular block (flattened top surface)
-translate(layer_3_offset)
-cube([large_block_length, large_block_width, large_block_height]);
+// Layer 2: Medium rectangular blocks (side by side above the base)
+translate([0, 0, large_rectangular_block_height]) {
+    cube([medium_rectangular_block_length, medium_rectangular_block_width, medium_rectangular_block_height]);
+}
+translate([medium_rectangular_block_length, 0, large_rectangular_block_height]) {
+    cube([medium_rectangular_block_length, medium_rectangular_block_width, medium_rectangular_block_height]);
+}
 
-// Create the medium rectangular block (remove protrusion)
-translate(layer_2_offset)
-cube([medium_block_length, medium_block_width, medium_block_height]);
-
-// Create the small rectangular block (remove stepped feature)
-translate(layer_1_offset)
-cube([small_block_length, small_block_width, small_block_height]);
+// Layer 3: Small rectangular blocks (side by side above the medium blocks)
+translate([0, 0, large_rectangular_block_height + medium_rectangular_block_height]) {
+    cube([small_rectangular_block_length, small_rectangular_block_width, small_rectangular_block_height]);
+}
+translate([small_rectangular_block_length, 0, large_rectangular_block_height + medium_rectangular_block_height]) {
+    cube([small_rectangular_block_length, small_rectangular_block_width, small_rectangular_block_height]);
+}
+translate([2 * small_rectangular_block_length, 0, large_rectangular_block_height + medium_rectangular_block_height]) {
+    cube([small_rectangular_block_length, small_rectangular_block_width, small_rectangular_block_height]);
+}
 
