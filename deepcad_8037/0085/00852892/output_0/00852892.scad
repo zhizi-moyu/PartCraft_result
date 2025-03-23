@@ -1,14 +1,17 @@
 
-// Parameters for the rectangular plate
-plate_length = 50;  // Length of the plate
-plate_width = 30;   // Width of the plate
-plate_thickness = 5; // Thickness of the plate
-
-// Function to create the rectangular plate
-module rectangular_plate() {
-    cube([plate_length, plate_width, plate_thickness], center = true);
+// Define the dimensions of the flat plate
+module flat_plate(length = 50, width = 50, thickness = 2) {
+    cube([length, width, thickness], center = true);
 }
 
-// Main model
-rectangular_plate();
+// Stack the flat plates vertically
+module stacked_flat_plates(num_plates = 6, spacing = 5) {
+    for (i = [0 : num_plates - 1]) {
+        translate([0, 0, i * spacing])
+            flat_plate();
+    }
+}
+
+// Generate the 3D model
+stacked_flat_plates();
 
