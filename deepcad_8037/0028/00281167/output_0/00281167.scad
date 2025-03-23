@@ -1,23 +1,23 @@
 
-// Define dimensions for the cuboids
-large_cuboid_size = [40, 20, 10];  // Dimensions for the large cuboid
-medium_cuboid_size = [30, 15, 10]; // Dimensions for the medium cuboid
-small_cuboid_size = [20, 10, 10];  // Dimensions for the small cuboid
+// Dimensions for the blocks
+large_block_size = [40, 20, 10];  // [length, width, height]
+medium_block_size = [30, 15, 10];
+small_block_size = [20, 10, 10];
 
-// Define positions for each layer
-large_cuboid_position = [0, 0, 0]; // Bottommost layer
-medium_cuboid_position = [0, 0, large_cuboid_size[2]]; // Middle layer
-small_cuboid_position = [0, 0, large_cuboid_size[2] + medium_cuboid_size[2]]; // Topmost layer
+// Positions for the blocks
+large_block_position = [0, 0, 0];  // Bottommost layer
+medium_block_position = [0, 0, large_block_size[2]];  // Above the large block
+small_block_position = [0, 0, large_block_size[2] + medium_block_size[2]];  // Topmost layer
 
-// Render the large cuboid
-translate(large_cuboid_position)
-    cube(large_cuboid_size, center = true);
+// Large rectangular block
+translate(large_block_position)
+    cube(large_block_size, center = true);
 
-// Render the medium cuboid
-translate(medium_cuboid_position)
-    cube(medium_cuboid_size, center = true);
+// Medium rectangular block
+translate(medium_block_position)
+    cube(medium_block_size, center = true);
 
-// Render the small cuboid
-translate(small_cuboid_position)
-    cube(small_cuboid_size, center = true);
+// Small rectangular block
+translate(small_block_position)
+    cube(small_block_size, center = true);
 
