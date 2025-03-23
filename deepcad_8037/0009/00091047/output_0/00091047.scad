@@ -1,5 +1,5 @@
 
-// Define dimensions for components
+// Dimensions
 base_plate_length = 100;
 base_plate_width = 60;
 base_plate_thickness = 5;
@@ -12,58 +12,52 @@ horizontal_plate_length = 100;
 horizontal_plate_width = 40;
 horizontal_plate_thickness = 5;
 
-corner_connector_length = 10;
-corner_connector_width = 10;
+corner_connector_length = 40;
+corner_connector_height = 40;
 corner_connector_thickness = 5;
-
-diagonal_support_length = 50;
-diagonal_support_thickness = 5;
 
 // Base Plate
 module base_plate() {
-    cube([base_plate_length, base_plate_width, base_plate_thickness]);
+    cube([base_plate_length, base_plate_width, base_plate_thickness], center = false);
 }
 
 // Vertical Plate
 module vertical_plate() {
-    translate([base_plate_length / 2 - vertical_plate_thickness / 2, 0, base_plate_thickness])
-    cube([vertical_plate_thickness, vertical_plate_length, vertical_plate_height]);
+    translate([0, (base_plate_width - vertical_plate_thickness) / 2, base_plate_thickness])
+        cube([vertical_plate_thickness, vertical_plate_length, vertical_plate_height], center = false);
 }
 
 // Horizontal Plate
 module horizontal_plate() {
-    translate([0, vertical_plate_length, base_plate_thickness + vertical_plate_height])
-    cube([horizontal_plate_length, horizontal_plate_thickness, horizontal_plate_width]);
+    translate([0, 0, base_plate_thickness + vertical_plate_height])
+        cube([horizontal_plate_length, horizontal_plate_width, horizontal_plate_thickness], center = false);
 }
 
 // Corner Connector
 module corner_connector() {
-    cube([corner_connector_length, corner_connector_width, corner_connector_thickness]);
+    translate([0, 0, base_plate_thickness])
+        linear_extrude(height = corner_connector_thickness)
+            polygon(points = [[0, 0], [corner_connector_length, 0], [0, corner_connector_height]]);
 }
 
-// Diagonal Support
-module diagonal_support() {
-    translate([base_plate_length / 2 - diagonal_support_thickness / 2, 0, base_plate_thickness])
-    rotate([0, 45, 0])
-    cube([diagonal_support_length, diagonal_support_thickness, diagonal_support_thickness]);
-}
-
-// Assemble the model
-module flexible_coupling() {
+// Assembly
+module assembly() {
+    // Base Plate
     base_plate();
+
+    // Vertical Plate
     vertical_plate();
+
+    // Horizontal Plate
     horizontal_plate();
-    
+
     // Corner Connectors
     translate([0, 0, base_plate_thickness])
-    corner_connector();
-    translate([base_plate_length - corner_connector_length, 0, base_plate_thickness])
-    corner_connector();
-    
-    // Diagonal Support
-    diagonal_support();
+        corner_connector();
+    translate([horizontal_plate_length - corner_connector_length, 0, base_plate_thickness])
+        corner_connector();
 }
 
 // Render the model
-flexible_coupling();
+assembly();
 

@@ -1,18 +1,19 @@
+
 // Dimensions
 base_plate_length = 100;
-base_plate_width = 80; // Adjusted width to match the original model
+base_plate_width = 90; // Widened to match the original model
 base_plate_thickness = 5;
 
 vertical_plate_length = 60;
-vertical_plate_height = 50; // Increased height to match the original model
+vertical_plate_height = 55; // Increased height to match the original model
 vertical_plate_thickness = 5;
 
 horizontal_plate_length = 100;
 horizontal_plate_width = 40;
 horizontal_plate_thickness = 5;
 
-corner_connector_length = 50; // Adjusted length to match the original model
-corner_connector_height = 50; // Adjusted height to match the original model
+corner_connector_length = 60; // Resized to be larger
+corner_connector_height = 60; // Resized to be larger
 corner_connector_thickness = 5;
 
 // Base Plate
@@ -28,7 +29,7 @@ module vertical_plate() {
 
 // Horizontal Plate
 module horizontal_plate() {
-    translate([0, 0, base_plate_thickness + vertical_plate_height + 5]) // Elevated to match the original model
+    translate([0, 0, base_plate_thickness + vertical_plate_height + 10]) // Elevated to match the original model
         cube([horizontal_plate_length, horizontal_plate_width, horizontal_plate_thickness], center = false);
 }
 
@@ -59,3 +60,4 @@ module assembly() {
 
 // Render the model
 assembly();
+
