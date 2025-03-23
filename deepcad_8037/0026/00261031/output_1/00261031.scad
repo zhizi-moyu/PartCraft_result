@@ -1,7 +1,14 @@
-// Define dimensions for the rectangular plate
-plate_length = 100;  // Length of the rectangular plate
-plate_width = 50;    // Width of the rectangular plate
-plate_thickness = 5; // Thickness of the rectangular plate
 
-// Generate the rectangular plate
-cube([plate_length, plate_width, plate_thickness]);
+// Define the dimensions of the rectangular plate
+module rectangular_plate(length, width, thickness) {
+    cube([length, width, thickness], center = true);
+}
+
+// Parameters for the rectangular plate
+plate_length = 50;  // Length of the plate
+plate_width = 20;   // Width of the plate
+plate_thickness = 12; // Combined thickness of the original six plates (6 * 2)
+
+// Render the single solid rectangular plate
+rectangular_plate(plate_length, plate_width, plate_thickness);
+
