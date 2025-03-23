@@ -1,18 +1,25 @@
 
 // Define the dimensions of the rectangular plate
-module rectangular_plate(length=50, width=10, thickness=2) {
-    cube([length, width, thickness], center=true);
+plate_length = 50;  // Length of the plate
+plate_width = 10;   // Width of the plate
+plate_thickness = 2; // Thickness of the plate
+spacing = 5;        // Spacing between each layer
+
+// Function to create a rectangular plate
+module rectangular_plate() {
+    cube([plate_length, plate_width, plate_thickness], center = true);
 }
 
-// Generate the 3D model with 6 rectangular plates
-module flexible_coupling() {
-    for (i = [0:5]) {
-        rotate([0, 0, i * 60])  // Rotate each plate by 60 degrees around the Z-axis
-        translate([0, 0, 0])    // Keep all plates at the same layer (layer_1)
-        rectangular_plate();
-    }
+// Assemble the layers based on the graph_dict
+module assembly() {
+    translate([0, 0, spacing * 2.5]) rectangular_plate(); // layer_1
+    translate([0, 0, spacing * 1.5]) rectangular_plate(); // layer_2
+    translate([0, 0, spacing * 0.5]) rectangular_plate(); // layer_3
+    translate([0, 0, -spacing * 0.5]) rectangular_plate(); // layer_4
+    translate([0, 0, -spacing * 1.5]) rectangular_plate(); // layer_5
+    translate([0, 0, -spacing * 2.5]) rectangular_plate(); // layer_6
 }
 
-// Call the flexible_coupling module to render the model
-flexible_coupling();
+// Render the assembly
+assembly();
 

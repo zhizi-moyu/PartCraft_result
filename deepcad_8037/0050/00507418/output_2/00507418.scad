@@ -2,8 +2,8 @@
 // Define the dimensions of the rectangular plate
 plate_length = 50;  // Length of the plate
 plate_width = 10;   // Width of the plate
-plate_thickness = 1; // Thickness of the plate (reduced to match original model)
-spacing = 15;       // Spacing between each plate (increased to match original model)
+plate_thickness = 1; // Thickness of the plate
+spacing = 15;       // Spacing between each plate
 
 // Function to create a rectangular plate
 module rectangular_plate() {
