@@ -1,26 +1,23 @@
 
-// Dimensions for the rectangular block
-block_length = 40;  // Length of the block
-block_width = 20;   // Width of the block
-block_height = 60;  // Height of the block
+// Parameters for the central block
+central_block_length = 40;  // Length of the rectangular prism
+central_block_width = 20;   // Width of the rectangular prism
+central_block_height = 20;  // Height of the rectangular prism
+hole_diameter = 10;         // Diameter of the circular hole
 
-// Dimensions for the circular hole
-hole_diameter = 10; // Diameter of the hole
-
-// Main module to create the rectangular block with a circular hole
-module rectangular_block() {
-    // Create the rectangular block
+// Function to create the central block
+module central_block() {
     difference() {
-        // Base block
-        cube([block_length, block_width, block_height], center = true);
+        // Create the rectangular prism
+        cube([central_block_length, central_block_width, central_block_height], center = true);
         
-        // Circular hole
-        rotate([90, 0, 0])  // Align the hole perpendicular to the largest face
-        translate([0, 0, 0])  // Center the hole
-        cylinder(r = hole_diameter / 2, h = block_length + 2, center = true);
+        // Create the circular hole
+        rotate([90, 0, 0])  // Rotate the cylinder to align with the block
+        translate([0, 0, -central_block_length / 2])  // Position the hole in the center
+        cylinder(h = central_block_length + 2, d = hole_diameter, center = true);
     }
 }
 
-// Call the module to render the model
-rectangular_block();
+// Render the central block
+central_block();
 
