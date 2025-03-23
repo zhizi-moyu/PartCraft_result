@@ -1,36 +1,31 @@
 
-// Dimensions for the blocks
-large_block = [60, 30, 15];  // Length, Width, Height
-medium_block = [40, 20, 20];
-small_block = [20, 20, 10];
+// Define dimensions for each block
+large_block_length = 60;  // Length of the large rectangular block
+large_block_width = 30;   // Width of the large rectangular block
+large_block_height = 20;  // Height of the large rectangular block
 
-// Function to create a block
-module block(size) {
-    cube(size, center = true);
-}
+medium_block_length = 40; // Length of the medium rectangular block
+medium_block_width = 20;  // Width of the medium rectangular block
+medium_block_height = 15; // Height of the medium rectangular block
 
-// Layer 1: Large rectangular block at the bottom
-// Adjusted to ensure proper alignment with the medium block above
-translate([0, 0, -50 + large_block[2] / 2])
-    block(large_block);
+small_block_length = 20;  // Length of the small rectangular block
+small_block_width = 10;   // Width of the small rectangular block
+small_block_height = 10;  // Height of the small rectangular block
 
-// Layer 2: Small rectangular block above the large block
-// Adjusted to ensure proper alignment and symmetry
-translate([0, 0, -50 + large_block[2] + small_block[2] / 2])
-    block(small_block);
+// Position offsets
+layer_1_offset = [0, 0, large_block_height + medium_block_height]; // Position of the small block
+layer_2_offset = [0, 0, large_block_height];                       // Position of the medium block
+layer_3_offset = [0, 0, 0];                                        // Position of the large block
 
-// Layer 3: Medium rectangular block above the small block
-// Adjusted to ensure proper centering and alignment
-translate([0, 0, -50 + large_block[2] + small_block[2] + medium_block[2] / 2])
-    block(medium_block);
+// Create the large rectangular block (flattened top surface)
+translate(layer_3_offset)
+cube([large_block_length, large_block_width, large_block_height]);
 
-// Layer 4: Second small rectangular block above the medium block
-// Adjusted to ensure proper alignment and symmetry
-translate([0, 0, -50 + large_block[2] + small_block[2] + medium_block[2] + small_block[2] / 2])
-    block(small_block);
+// Create the medium rectangular block (remove protrusion)
+translate(layer_2_offset)
+cube([medium_block_length, medium_block_width, medium_block_height]);
 
-// Layer 5: Second large rectangular block at the top
-// Adjusted to ensure proper alignment with the medium block below
-translate([0, 0, -50 + large_block[2] + small_block[2] + medium_block[2] + small_block[2] + large_block[2] / 2])
-    block(large_block);
+// Create the small rectangular block (remove stepped feature)
+translate(layer_1_offset)
+cube([small_block_length, small_block_width, small_block_height]);
 
