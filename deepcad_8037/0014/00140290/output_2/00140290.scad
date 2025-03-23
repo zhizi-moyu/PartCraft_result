@@ -1,16 +1,16 @@
 
 // Define dimensions for the rectangular flat plate
 module rectangular_flat_plate() {
-    translate([0, 0, 0])  // Position at the topmost layer
-    cube([60, 40, 5], center = true);  // Dimensions: 60x40x5
+    translate([0, 0, 7.5])  // Adjusted position to match the original model
+    cube([70, 50, 5], center = true);  // Corrected dimensions: 70x50x5
 }
 
 // Define dimensions for the square plate with a hole
 module square_plate_with_hole() {
     difference() {
-        translate([0, 0, -5])  // Position below the rectangular flat plate
+        translate([0, 0, -7.5])  // Adjusted position to match the original model
         cube([20, 20, 5], center = true);  // Dimensions: 20x20x5
-        translate([0, 0, -5])  // Center hole
+        translate([0, 0, 0])  // Center hole
         cylinder(r=5, h=5, center = true);
     }
 }
