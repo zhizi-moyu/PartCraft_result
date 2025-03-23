@@ -7,8 +7,8 @@ small_block_size = [10, 20, 10];  // Length, width, height for the small rectang
 // Layer positions
 layer_spacing = 10;
 layer_3_position = [0, 0, 0]; // Positioned at base (layer 3)
-layer_2_position = [2.5, 2.5, large_block_size[2] + layer_spacing]; // Centered above large block (layer 2)
-layer_1_position = [5, 5, large_block_size[2] + medium_block_size[2] + 2*layer_spacing]; // Centered above medium block (layer 1)
+layer_2_position = [(large_block_size[0] - medium_block_size[0]) / 2, (large_block_size[1] - medium_block_size[1]) / 2, large_block_size[2] + layer_spacing]; // Centered above large block (layer 2)
+layer_1_position = [(medium_block_size[0] - small_block_size[0]) / 2, (medium_block_size[1] - small_block_size[1]) / 2, large_block_size[2] + medium_block_size[2] + 2 * layer_spacing]; // Centered above medium block (layer 1)
 
 // Large rectangular block
 translate(layer_3_position)
