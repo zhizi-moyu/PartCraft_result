@@ -1,38 +1,43 @@
 
-// Define dimensions for each block
-large_rectangular_block_length = 100;
-large_rectangular_block_width = 50;
-large_rectangular_block_height = 20;
+// Define dimensions for the blocks
+large_block_width = 60;
+large_block_height = 20;
+large_block_depth = 40;
 
-medium_rectangular_block_length = 50;
-medium_rectangular_block_width = 50;
-medium_rectangular_block_height = 30;
+medium_block_width = 40;
+medium_block_height = 20;
+medium_block_depth = 30;
 
-small_rectangular_block_length = 30;
-small_rectangular_block_width = 30;
-small_rectangular_block_height = 20;
+small_block_width = 20;
+small_block_height = 20;
+small_block_depth = 20;
 
-// Layer 1: Large rectangular block (base) - Corrected to remove slanted cut
-translate([0, 0, 0]) {
-    cube([large_rectangular_block_length, large_rectangular_block_width, large_rectangular_block_height]);
+// Define positions for the layers
+layer_1_z = small_block_height; // Topmost layer
+layer_2_z = medium_block_height; // Middle layer
+layer_3_z = 0; // Bottommost layer
+
+// Create the large rectangular blocks (layer 3) - separated side by side
+translate([-large_block_width / 2 - 5, 0, layer_3_z]) {
+    cube([large_block_width, large_block_depth, large_block_height], center = true);
+}
+translate([large_block_width / 2 + 5, 0, layer_3_z]) {
+    cube([large_block_width, large_block_depth, large_block_height], center = true);
 }
 
-// Layer 2: Medium rectangular blocks (side by side above the base) - Corrected to remove stepped shape and extrusions
-translate([0, 0, large_rectangular_block_height]) {
-    cube([medium_rectangular_block_length, medium_rectangular_block_width, medium_rectangular_block_height]);
+// Create the medium rectangular blocks (layer 2) - separated side by side
+translate([-medium_block_width / 2 - 5, 0, layer_2_z]) {
+    cube([medium_block_width, medium_block_depth, medium_block_height], center = true);
 }
-translate([medium_rectangular_block_length, 0, large_rectangular_block_height]) {
-    cube([medium_rectangular_block_length, medium_rectangular_block_width, medium_rectangular_block_height]);
+translate([medium_block_width / 2 + 5, 0, layer_2_z]) {
+    cube([medium_block_width, medium_block_depth, medium_block_height], center = true);
 }
 
-// Layer 3: Small rectangular blocks (side by side above the medium blocks) - Corrected slanted edge, uneven shape, and misalignment
-translate([0, 0, large_rectangular_block_height + medium_rectangular_block_height]) {
-    cube([small_rectangular_block_length, small_rectangular_block_width, small_rectangular_block_height]);
+// Create the small rectangular blocks (layer 1) - separated side by side
+translate([-small_block_width / 2 - 5, 0, layer_1_z]) {
+    cube([small_block_width, small_block_depth, small_block_height], center = true);
 }
-translate([small_rectangular_block_length, 0, large_rectangular_block_height + medium_rectangular_block_height]) {
-    cube([small_rectangular_block_length, small_rectangular_block_width, small_rectangular_block_height]);
-}
-translate([2 * small_rectangular_block_length, 0, large_rectangular_block_height + medium_rectangular_block_height]) {
-    cube([small_rectangular_block_length, small_rectangular_block_width, small_rectangular_block_height]);
+translate([small_block_width / 2 + 5, 0, layer_1_z]) {
+    cube([small_block_width, small_block_depth, small_block_height], center = true);
 }
 
