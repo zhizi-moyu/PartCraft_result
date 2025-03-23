@@ -1,16 +1,23 @@
-// Define parameters for the rectangular plate with a hole
-plate_length = 50;  // Length of the rectangular plate
-plate_width = 30;   // Width of the rectangular plate
-plate_thickness = 5; // Thickness of the rectangular plate
-hole_diameter = 20; // Diameter of the centered circular hole
 
-// Function to create a rectangular plate with a centered hole
-module rectangular_plate_with_hole() {
+// Parameters
+plate_size = 50; // Length of the square plate (in mm)
+plate_thickness = 4; // Adjusted thickness of the plate (in mm) to match the original model
+hole_diameter = 40; // Diameter of the central circular hole (in mm)
+hole_edge_smoothness = 3; // Increased radius for smoothing the edges of the hole (in mm) to make it more uniform
+
+// Main module
+module square_plate_with_hole() {
+    // Create the square plate
     difference() {
-        cube([plate_length, plate_width, plate_thickness], center = true);
-        cylinder(r = hole_diameter / 2, h = plate_thickness + 1, center = true);
+        cube([plate_size, plate_size, plate_thickness], center=true); // Square plate
+        
+        // Create a smoothed circular hole
+        translate([0, 0, -hole_edge_smoothness]) {
+            cylinder(d=hole_diameter, h=plate_thickness + 2 * hole_edge_smoothness, center=true, $fn=100); // Smoothed central circular hole
+        }
     }
 }
 
-// Generate a single rectangular plate with a hole
-rectangular_plate_with_hole();
+// Render the model
+square_plate_with_hole();
+

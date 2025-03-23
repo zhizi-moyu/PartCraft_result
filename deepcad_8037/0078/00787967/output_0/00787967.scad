@@ -1,22 +1,18 @@
 
-// Parameters for the square plate with a central hole
+// Parameters
 plate_size = 50; // Length of the square plate (in mm)
 plate_thickness = 5; // Thickness of the plate (in mm)
-hole_diameter = 20; // Diameter of the central circular hole (in mm)
+hole_diameter = 30; // Diameter of the central circular hole (in mm)
 
-// Module to create the square plate with a central hole
+// Main module
 module square_plate_with_hole() {
+    // Create the square plate
     difference() {
-        // Create the square plate
-        cube([plate_size, plate_size, plate_thickness], center = true);
-        
-        // Subtract the central circular hole
-        translate([0, 0, -plate_thickness / 2]) {
-            cylinder(r = hole_diameter / 2, h = plate_thickness * 2, center = true);
-        }
+        cube([plate_size, plate_size, plate_thickness], center=true); // Square plate
+        cylinder(d=hole_diameter, h=plate_thickness + 1, center=true); // Central circular hole
     }
 }
 
-// Render the square plate with a central hole
+// Render the model
 square_plate_with_hole();
 
