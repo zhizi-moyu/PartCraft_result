@@ -1,39 +1,33 @@
 
-// Function to create a wedge block
-module wedge_block(base_length, base_width, height) {
+// Function to create a single wedge block
+module wedge_block() {
     polyhedron(
         points=[
-            [0, 0, 0], // Point 0: Bottom-left corner of the base
-            [base_length, 0, 0], // Point 1: Bottom-right corner of the base
-            [base_length, base_width, 0], // Point 2: Top-right corner of the base
-            [0, base_width, 0], // Point 3: Top-left corner of the base
-            [0, 0, height], // Point 4: Apex of the wedge (above Point 0)
-            [base_length, 0, height] // Point 5: Apex of the wedge (above Point 1)
+            [0, 0, 0],  // Bottom-left corner of the base
+            [20, 0, 0], // Bottom-right corner of the base
+            [20, 10, 0], // Top-right corner of the base
+            [0, 10, 0],  // Top-left corner of the base
+            [10, 5, 20]  // Apex point of the triangular prism
         ],
         faces=[
-            [0, 1, 5, 4], // Slanted face
-            [1, 2, 3, 0], // Bottom rectangular face
-            [0, 3, 4], // Left triangular face
-            [1, 5, 2], // Right triangular face
-            [4, 5, 2, 3] // Top rectangular face
+            [0, 1, 4], // Bottom slanted face
+            [1, 2, 4], // Right slanted face
+            [2, 3, 4], // Top slanted face
+            [3, 0, 4], // Left slanted face
+            [0, 1, 2, 3] // Base face
         ]
     );
 }
 
-// Parameters for the wedge block
-base_length = 20; // Length of the rectangular base
-base_width = 10; // Width of the rectangular base
-height = 15; // Height of the wedge
-
-// Positioning parameters
-spacing = 25; // Vertical spacing between blocks
-
-// Layer 1: Arrange six wedge blocks in a vertical configuration
-for (i = [0:5]) {
-    translate([0, 0, i * spacing]) {
-        rotate([0, 0, i * 60]) { // Rotate each block by 60 degrees around the Z-axis
-            wedge_block(base_length, base_width, height);
-        }
+// Function to arrange six wedge blocks in a circular pattern
+module flexible_coupling() {
+    for (i = [0:5]) {
+        rotate([0, 0, i * 60]) // Rotate each block by 60 degrees
+        translate([30, 0, 0]) // Position each block in a circular pattern
+        wedge_block();
     }
 }
+
+// Generate the flexible coupling
+flexible_coupling();
 
