@@ -1,18 +1,18 @@
 
-// Parameters for the square plate with a hole
-plate_width = 50; // Width of the square plate
-plate_thickness = 5; // Thickness of the plate
-hole_diameter = 20; // Diameter of the central hole
+// Define parameters for the rectangular plate with a hole
+plate_length = 50;  // Length of the rectangular plate
+plate_width = 30;   // Width of the rectangular plate
+plate_thickness = 5; // Thickness of the rectangular plate
+hole_diameter = 20; // Diameter of the centered circular hole
 
-// Function to create a square plate with a central hole
-module square_plate_with_hole() {
+// Function to create a rectangular plate with a centered hole
+module rectangular_plate_with_hole() {
     difference() {
-        cube([plate_width, plate_width, plate_thickness], center = true);
-        translate([0, 0, -plate_thickness / 2])
-            cylinder(h = plate_thickness * 2, d = hole_diameter, center = true);
+        cube([plate_length, plate_width, plate_thickness], center = true);
+        cylinder(r = hole_diameter / 2, h = plate_thickness + 1, center = true);
     }
 }
 
-// Call the square_plate_with_hole module to generate the single plate model
-square_plate_with_hole();
+// Generate a single rectangular plate with a hole
+rectangular_plate_with_hole();
 

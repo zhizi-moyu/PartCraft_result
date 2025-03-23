@@ -3,7 +3,7 @@
   "armature_count": 0,
   "edge_count": 1224,
   "file_identifier": "https://github.com/zhizi-moyu/for_modify/blob/main/output.stl",
-  "file_size": 131613,
+  "file_size": 129573,
   "lamp_count": 1,
   "linked_files": [],
   "material_count": 0,
@@ -29,16 +29,16 @@
   "scene_size": {
     "bbox_max": [
       25.0,
-      25.0,
-      2.5
+      15.0,
+      52.5
     ],
     "bbox_min": [
       -25.0,
-      -25.0,
-      -52.5
+      -15.0,
+      -2.5
     ]
   },
-  "sha256": "0e20eb7a521ab0bcba94e94857eb06205f63dc5896cbe47ee187976ad8070d5d",
+  "sha256": "116c20298dd0f6c8b6c31b0c37b9c64db013d8070656571dd5ca98df91dc02a2",
   "shape_key_count": 0,
   "vert_count": 408
 }
