@@ -1,8 +1,8 @@
 
 // Parameters for the wedge block
-wedge_length = 50;  // Updated length of the rectangular base to match the original model
-wedge_width = 20;   // Updated width of the rectangular base to match the original model
-wedge_height = 25;  // Updated height of the triangular prism to match the original model
+wedge_length = 60;  // Increased length to match the original model
+wedge_width = 25;   // Increased width to match the original model
+wedge_height = 30;  // Adjusted height to match the original model
 
 // Function to create a wedge block
 module wedge_block() {
@@ -26,7 +26,7 @@ module wedge_block() {
 }
 
 // Adjusting orientation to match the original model
-rotate([0, 0, 45]) {  // Rotating the wedge block by 45 degrees
+rotate([0, 0, 0]) {  // Corrected rotation to match the original orientation
     wedge_block();
 }
 
