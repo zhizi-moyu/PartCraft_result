@@ -21,7 +21,6 @@ translate([0, 0, 0]) {
 }
 
 // Ensure uniform orientation
-rotate([0, 0, 0]) {
-    // The base block is already aligned uniformly
-}
+// Removed unnecessary rotation to ensure the base block remains flat and aligned
+// The base block is already aligned uniformly, so no rotation is applied
 
