@@ -3,7 +3,8 @@
 module base_block() {
     difference() {
         cube([30, 30, 10], center = false);
-        translate([25, 0, 8]) cube([5, 10, 2], center = false); // Notch
+        // Adjusted notch: smaller and positioned closer to the top edge
+        translate([26, 0, 9]) cube([3, 10, 1], center = false); // Notch
     }
 }
 
@@ -11,7 +12,8 @@ module base_block() {
 module top_block() {
     union() {
         cube([30, 30, 10], center = false);
-        translate([25, 0, 10]) cube([5, 10, 2], center = false); // Protrusion
+        // Adjusted protrusion: narrower and shorter
+        translate([26, 0, 10]) cube([3, 10, 1], center = false); // Protrusion
     }
 }
 
@@ -19,7 +21,8 @@ module top_block() {
 module side_block() {
     difference() {
         cube([10, 30, 30], center = false);
-        translate([0, 0, 20]) cube([10, 10, 10], center = false); // Cutout
+        // Adjusted cutout: shallower and positioned closer to the top edge
+        translate([0, 0, 22]) cube([10, 10, 8], center = false); // Cutout
     }
 }
 
@@ -27,7 +30,8 @@ module side_block() {
 module connector_block() {
     difference() {
         cube([30, 10, 10], center = false);
-        translate([10, 0, 4]) cube([10, 10, 2], center = false); // Groove
+        // Adjusted groove: narrower and more recessed
+        translate([12, 0, 3]) cube([6, 10, 4], center = false); // Groove
     }
 }
 
