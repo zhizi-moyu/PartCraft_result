@@ -21,10 +21,19 @@ module wedge_block(base_length, base_width, height) {
 }
 
 // Parameters for the wedge block
-base_length = 20; // Length of the rectangular base
-base_width = 10;  // Width of the rectangular base
-height = 15;      // Height of the wedge
+base_length = 30; // Length of the rectangular base (adjusted to match original model)
+base_width = 15;  // Width of the rectangular base (adjusted to match original model)
+height = 20;      // Height of the wedge (adjusted to match original model)
 
-// Generate the 3D model
-wedge_block(base_length, base_width, height);
+// Adjust orientation to match the original model
+rotate([0, 0, 45]) {
+    wedge_block(base_length, base_width, height);
+}
+
+// Reduce sharpness of the edge to match the original model
+translate([0, 0, -2]) {
+    scale([1, 1, 0.9]) {
+        wedge_block(base_length, base_width, height);
+    }
+}
 
