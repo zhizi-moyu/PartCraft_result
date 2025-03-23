@@ -1,23 +1,11 @@
 
-// Parameters for the rectangular bar
-bar_length = 50;  // Length of the rectangular bar
-bar_width = 10;   // Width of the rectangular bar
-bar_height = 5;   // Height of the rectangular bar
-bar_spacing = 60; // Spacing between bars
+// Define dimensions for the rectangular bar
+length = 120;  // Adjusted length to match the original model
+width = 20;    // Width remains the same
+height = 10;   // Height remains the same
 
-// Function to create a single rectangular bar
-module rectangular_bar() {
-    cube([bar_length, bar_width, bar_height], center = true);
-}
-
-// Main assembly
-module assembly() {
-    for (i = [0:5]) {
-        translate([i * bar_spacing, 0, 0])  // Position the bars horizontally, spaced apart
-        rectangular_bar();
-    }
-}
-
-// Call the assembly module to render the model
-assembly();
+// Adjust rotation and position to match the original model
+translate([10, 15, 0])  // Lowered the bar along the vertical axis
+rotate([0, 0, 0])       // Removed angular tilt to align horizontally
+cube([length, width, height]);
 
