@@ -1,17 +1,14 @@
 
 // Define the dimensions of the flat plate
-module flat_plate(length = 50, width = 50, thickness = 2) {
-    cube([length, width, thickness], center = true);
+plate_length = 100;  // Length of the plate
+plate_width = 60;    // Width of the plate
+plate_thickness = 5; // Thickness of the plate
+
+// Create the flat rectangular plate
+module flat_plate() {
+    cube([plate_length, plate_width, plate_thickness], center = true);
 }
 
-// Stack the flat plates vertically
-module stacked_flat_plates(num_plates = 6, spacing = 5) {
-    for (i = [0 : num_plates - 1]) {
-        translate([0, 0, i * spacing])
-            flat_plate();
-    }
-}
-
-// Generate the 3D model
-stacked_flat_plates();
+// Render the flat plate
+flat_plate();
 
