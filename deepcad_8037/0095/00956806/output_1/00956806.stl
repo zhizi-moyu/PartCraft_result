@@ -1,0 +1,1178 @@
+solid OpenSCAD_Model
+  facet normal 0.707107 0.707107 0
+    outer loop
+      vertex 26 25 22
+      vertex 25 26 20
+      vertex 25 26 22
+    endloop
+  endfacet
+  facet normal 0.707107 0.707107 0
+    outer loop
+      vertex 25 26 20
+      vertex 26 25 22
+      vertex 26 25 20
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 25 26 22
+      vertex 26 -25 22
+      vertex 26 25 22
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 25 26 22
+      vertex 25 -26 22
+      vertex 26 -25 22
+    endloop
+  endfacet
+  facet normal -0 0 1
+    outer loop
+      vertex -25 26 22
+      vertex 25 -26 22
+      vertex 25 26 22
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -25 26 22
+      vertex -25 -26 22
+      vertex 25 -26 22
+    endloop
+  endfacet
+  facet normal -0 0 1
+    outer loop
+      vertex -26 25 22
+      vertex -25 -26 22
+      vertex -25 26 22
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -25 -26 22
+      vertex -26 25 22
+      vertex -26 -25 22
+    endloop
+  endfacet
+  facet normal -0.707107 -0.707107 0
+    outer loop
+      vertex -25 -26 20
+      vertex -26 -25 22
+      vertex -26 -25 20
+    endloop
+  endfacet
+  facet normal -0.707107 -0.707107 0
+    outer loop
+      vertex -26 -25 22
+      vertex -25 -26 20
+      vertex -25 -26 22
+    endloop
+  endfacet
+  facet normal 1 -0 0
+    outer loop
+      vertex 26 -25 22
+      vertex 26 25 20
+      vertex 26 25 22
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 26 25 20
+      vertex 26 -25 22
+      vertex 26 -25 20
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -25 -26 20
+      vertex 25 -26 22
+      vertex -25 -26 22
+    endloop
+  endfacet
+  facet normal 0 -1 -0
+    outer loop
+      vertex 25 -26 22
+      vertex -25 -26 20
+      vertex 25 -26 20
+    endloop
+  endfacet
+  facet normal -0.707107 0.707107 0
+    outer loop
+      vertex -26 25 20
+      vertex -25 26 22
+      vertex -25 26 20
+    endloop
+  endfacet
+  facet normal -0.707107 0.707107 0
+    outer loop
+      vertex -25 26 22
+      vertex -26 25 20
+      vertex -26 25 22
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 25 -26 20
+      vertex 26 25 20
+      vertex 26 -25 20
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 25 -26 20
+      vertex 25 26 20
+      vertex 26 25 20
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 -26 20
+      vertex 25 26 20
+      vertex 25 -26 20
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 -26 20
+      vertex -25 26 20
+      vertex 25 26 20
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -26 -25 20
+      vertex -25 26 20
+      vertex -25 -26 20
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 26 20
+      vertex -26 -25 20
+      vertex -26 25 20
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 25 26 20
+      vertex -25 26 22
+      vertex 25 26 22
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex -25 26 22
+      vertex 25 26 20
+      vertex -25 26 20
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex -26 -25 20
+      vertex -26 25 22
+      vertex -26 25 20
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex -26 25 22
+      vertex -26 -25 20
+      vertex -26 -25 22
+    endloop
+  endfacet
+  facet normal 0.707107 -0.707107 0
+    outer loop
+      vertex 25 -26 22
+      vertex 26 -25 20
+      vertex 26 -25 22
+    endloop
+  endfacet
+  facet normal 0.707107 -0.707107 0
+    outer loop
+      vertex 26 -25 20
+      vertex 25 -26 22
+      vertex 25 -26 20
+    endloop
+  endfacet
+  facet normal 0.707107 0.707107 0
+    outer loop
+      vertex 26 25 14
+      vertex 25 26 12
+      vertex 25 26 14
+    endloop
+  endfacet
+  facet normal 0.707107 0.707107 0
+    outer loop
+      vertex 25 26 12
+      vertex 26 25 14
+      vertex 26 25 12
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 25 26 14
+      vertex 26 -25 14
+      vertex 26 25 14
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 25 26 14
+      vertex 25 -26 14
+      vertex 26 -25 14
+    endloop
+  endfacet
+  facet normal -0 0 1
+    outer loop
+      vertex -25 26 14
+      vertex 25 -26 14
+      vertex 25 26 14
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -25 26 14
+      vertex -25 -26 14
+      vertex 25 -26 14
+    endloop
+  endfacet
+  facet normal -0 0 1
+    outer loop
+      vertex -26 25 14
+      vertex -25 -26 14
+      vertex -25 26 14
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -25 -26 14
+      vertex -26 25 14
+      vertex -26 -25 14
+    endloop
+  endfacet
+  facet normal -0.707107 -0.707107 0
+    outer loop
+      vertex -25 -26 12
+      vertex -26 -25 14
+      vertex -26 -25 12
+    endloop
+  endfacet
+  facet normal -0.707107 -0.707107 0
+    outer loop
+      vertex -26 -25 14
+      vertex -25 -26 12
+      vertex -25 -26 14
+    endloop
+  endfacet
+  facet normal 1 -0 0
+    outer loop
+      vertex 26 -25 14
+      vertex 26 25 12
+      vertex 26 25 14
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 26 25 12
+      vertex 26 -25 14
+      vertex 26 -25 12
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -25 -26 12
+      vertex 25 -26 14
+      vertex -25 -26 14
+    endloop
+  endfacet
+  facet normal 0 -1 -0
+    outer loop
+      vertex 25 -26 14
+      vertex -25 -26 12
+      vertex 25 -26 12
+    endloop
+  endfacet
+  facet normal -0.707107 0.707107 0
+    outer loop
+      vertex -26 25 12
+      vertex -25 26 14
+      vertex -25 26 12
+    endloop
+  endfacet
+  facet normal -0.707107 0.707107 0
+    outer loop
+      vertex -25 26 14
+      vertex -26 25 12
+      vertex -26 25 14
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 25 -26 12
+      vertex 26 25 12
+      vertex 26 -25 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 25 -26 12
+      vertex 25 26 12
+      vertex 26 25 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 -26 12
+      vertex 25 26 12
+      vertex 25 -26 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 -26 12
+      vertex -25 26 12
+      vertex 25 26 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -26 -25 12
+      vertex -25 26 12
+      vertex -25 -26 12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 26 12
+      vertex -26 -25 12
+      vertex -26 25 12
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 25 26 12
+      vertex -25 26 14
+      vertex 25 26 14
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex -25 26 14
+      vertex 25 26 12
+      vertex -25 26 12
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex -26 -25 12
+      vertex -26 25 14
+      vertex -26 25 12
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex -26 25 14
+      vertex -26 -25 12
+      vertex -26 -25 14
+    endloop
+  endfacet
+  facet normal 0.707107 -0.707107 0
+    outer loop
+      vertex 25 -26 14
+      vertex 26 -25 12
+      vertex 26 -25 14
+    endloop
+  endfacet
+  facet normal 0.707107 -0.707107 0
+    outer loop
+      vertex 26 -25 12
+      vertex 25 -26 14
+      vertex 25 -26 12
+    endloop
+  endfacet
+  facet normal 0.707107 0.707107 0
+    outer loop
+      vertex 26 25 6
+      vertex 25 26 4
+      vertex 25 26 6
+    endloop
+  endfacet
+  facet normal 0.707107 0.707107 0
+    outer loop
+      vertex 25 26 4
+      vertex 26 25 6
+      vertex 26 25 4
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 25 26 6
+      vertex 26 -25 6
+      vertex 26 25 6
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 25 26 6
+      vertex 25 -26 6
+      vertex 26 -25 6
+    endloop
+  endfacet
+  facet normal -0 0 1
+    outer loop
+      vertex -25 26 6
+      vertex 25 -26 6
+      vertex 25 26 6
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -25 26 6
+      vertex -25 -26 6
+      vertex 25 -26 6
+    endloop
+  endfacet
+  facet normal -0 0 1
+    outer loop
+      vertex -26 25 6
+      vertex -25 -26 6
+      vertex -25 26 6
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -25 -26 6
+      vertex -26 25 6
+      vertex -26 -25 6
+    endloop
+  endfacet
+  facet normal -0.707107 -0.707107 0
+    outer loop
+      vertex -25 -26 4
+      vertex -26 -25 6
+      vertex -26 -25 4
+    endloop
+  endfacet
+  facet normal -0.707107 -0.707107 0
+    outer loop
+      vertex -26 -25 6
+      vertex -25 -26 4
+      vertex -25 -26 6
+    endloop
+  endfacet
+  facet normal 1 -0 0
+    outer loop
+      vertex 26 -25 6
+      vertex 26 25 4
+      vertex 26 25 6
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 26 25 4
+      vertex 26 -25 6
+      vertex 26 -25 4
+    endloop
+  endfacet
+  facet normal -0.707107 0.707107 0
+    outer loop
+      vertex -26 25 4
+      vertex -25 26 6
+      vertex -25 26 4
+    endloop
+  endfacet
+  facet normal -0.707107 0.707107 0
+    outer loop
+      vertex -25 26 6
+      vertex -26 25 4
+      vertex -26 25 6
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 25 -26 4
+      vertex 26 25 4
+      vertex 26 -25 4
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 25 -26 4
+      vertex 25 26 4
+      vertex 26 25 4
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 -26 4
+      vertex 25 26 4
+      vertex 25 -26 4
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 -26 4
+      vertex -25 26 4
+      vertex 25 26 4
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -26 -25 4
+      vertex -25 26 4
+      vertex -25 -26 4
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 26 4
+      vertex -26 -25 4
+      vertex -26 25 4
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 25 26 4
+      vertex -25 26 6
+      vertex 25 26 6
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex -25 26 6
+      vertex 25 26 4
+      vertex -25 26 4
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex -26 -25 4
+      vertex -26 25 6
+      vertex -26 25 4
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex -26 25 6
+      vertex -26 -25 4
+      vertex -26 -25 6
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -25 -26 4
+      vertex 25 -26 6
+      vertex -25 -26 6
+    endloop
+  endfacet
+  facet normal 0 -1 -0
+    outer loop
+      vertex 25 -26 6
+      vertex -25 -26 4
+      vertex 25 -26 4
+    endloop
+  endfacet
+  facet normal 0.707107 -0.707107 0
+    outer loop
+      vertex 25 -26 6
+      vertex 26 -25 4
+      vertex 26 -25 6
+    endloop
+  endfacet
+  facet normal 0.707107 -0.707107 0
+    outer loop
+      vertex 26 -25 4
+      vertex 25 -26 6
+      vertex 25 -26 4
+    endloop
+  endfacet
+  facet normal 0.707107 0.707107 0
+    outer loop
+      vertex 26 25 -2
+      vertex 25 26 -4
+      vertex 25 26 -2
+    endloop
+  endfacet
+  facet normal 0.707107 0.707107 0
+    outer loop
+      vertex 25 26 -4
+      vertex 26 25 -2
+      vertex 26 25 -4
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 25 26 -2
+      vertex 26 -25 -2
+      vertex 26 25 -2
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 25 26 -2
+      vertex 25 -26 -2
+      vertex 26 -25 -2
+    endloop
+  endfacet
+  facet normal -0 0 1
+    outer loop
+      vertex -25 26 -2
+      vertex 25 -26 -2
+      vertex 25 26 -2
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -25 26 -2
+      vertex -25 -26 -2
+      vertex 25 -26 -2
+    endloop
+  endfacet
+  facet normal -0 0 1
+    outer loop
+      vertex -26 25 -2
+      vertex -25 -26 -2
+      vertex -25 26 -2
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -25 -26 -2
+      vertex -26 25 -2
+      vertex -26 -25 -2
+    endloop
+  endfacet
+  facet normal -0.707107 -0.707107 0
+    outer loop
+      vertex -25 -26 -4
+      vertex -26 -25 -2
+      vertex -26 -25 -4
+    endloop
+  endfacet
+  facet normal -0.707107 -0.707107 0
+    outer loop
+      vertex -26 -25 -2
+      vertex -25 -26 -4
+      vertex -25 -26 -2
+    endloop
+  endfacet
+  facet normal 1 -0 0
+    outer loop
+      vertex 26 -25 -2
+      vertex 26 25 -4
+      vertex 26 25 -2
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 26 25 -4
+      vertex 26 -25 -2
+      vertex 26 -25 -4
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -25 -26 -4
+      vertex 25 -26 -2
+      vertex -25 -26 -2
+    endloop
+  endfacet
+  facet normal 0 -1 -0
+    outer loop
+      vertex 25 -26 -2
+      vertex -25 -26 -4
+      vertex 25 -26 -4
+    endloop
+  endfacet
+  facet normal -0.707107 0.707107 0
+    outer loop
+      vertex -26 25 -4
+      vertex -25 26 -2
+      vertex -25 26 -4
+    endloop
+  endfacet
+  facet normal -0.707107 0.707107 0
+    outer loop
+      vertex -25 26 -2
+      vertex -26 25 -4
+      vertex -26 25 -2
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 25 -26 -4
+      vertex 26 25 -4
+      vertex 26 -25 -4
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 25 -26 -4
+      vertex 25 26 -4
+      vertex 26 25 -4
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 -26 -4
+      vertex 25 26 -4
+      vertex 25 -26 -4
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 -26 -4
+      vertex -25 26 -4
+      vertex 25 26 -4
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -26 -25 -4
+      vertex -25 26 -4
+      vertex -25 -26 -4
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 26 -4
+      vertex -26 -25 -4
+      vertex -26 25 -4
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 25 26 -4
+      vertex -25 26 -2
+      vertex 25 26 -2
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex -25 26 -2
+      vertex 25 26 -4
+      vertex -25 26 -4
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex -26 -25 -4
+      vertex -26 25 -2
+      vertex -26 25 -4
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex -26 25 -2
+      vertex -26 -25 -4
+      vertex -26 -25 -2
+    endloop
+  endfacet
+  facet normal 0.707107 -0.707107 0
+    outer loop
+      vertex 25 -26 -2
+      vertex 26 -25 -4
+      vertex 26 -25 -2
+    endloop
+  endfacet
+  facet normal 0.707107 -0.707107 0
+    outer loop
+      vertex 26 -25 -4
+      vertex 25 -26 -2
+      vertex 25 -26 -4
+    endloop
+  endfacet
+  facet normal 0.707107 0.707107 0
+    outer loop
+      vertex 26 25 -10
+      vertex 25 26 -12
+      vertex 25 26 -10
+    endloop
+  endfacet
+  facet normal 0.707107 0.707107 0
+    outer loop
+      vertex 25 26 -12
+      vertex 26 25 -10
+      vertex 26 25 -12
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 25 26 -10
+      vertex 26 -25 -10
+      vertex 26 25 -10
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 25 26 -10
+      vertex 25 -26 -10
+      vertex 26 -25 -10
+    endloop
+  endfacet
+  facet normal -0 0 1
+    outer loop
+      vertex -25 26 -10
+      vertex 25 -26 -10
+      vertex 25 26 -10
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -25 26 -10
+      vertex -25 -26 -10
+      vertex 25 -26 -10
+    endloop
+  endfacet
+  facet normal -0 0 1
+    outer loop
+      vertex -26 25 -10
+      vertex -25 -26 -10
+      vertex -25 26 -10
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -25 -26 -10
+      vertex -26 25 -10
+      vertex -26 -25 -10
+    endloop
+  endfacet
+  facet normal -0.707107 -0.707107 0
+    outer loop
+      vertex -25 -26 -12
+      vertex -26 -25 -10
+      vertex -26 -25 -12
+    endloop
+  endfacet
+  facet normal -0.707107 -0.707107 0
+    outer loop
+      vertex -26 -25 -10
+      vertex -25 -26 -12
+      vertex -25 -26 -10
+    endloop
+  endfacet
+  facet normal 1 -0 0
+    outer loop
+      vertex 26 -25 -10
+      vertex 26 25 -12
+      vertex 26 25 -10
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 26 25 -12
+      vertex 26 -25 -10
+      vertex 26 -25 -12
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -25 -26 -12
+      vertex 25 -26 -10
+      vertex -25 -26 -10
+    endloop
+  endfacet
+  facet normal 0 -1 -0
+    outer loop
+      vertex 25 -26 -10
+      vertex -25 -26 -12
+      vertex 25 -26 -12
+    endloop
+  endfacet
+  facet normal -0.707107 0.707107 0
+    outer loop
+      vertex -26 25 -12
+      vertex -25 26 -10
+      vertex -25 26 -12
+    endloop
+  endfacet
+  facet normal -0.707107 0.707107 0
+    outer loop
+      vertex -25 26 -10
+      vertex -26 25 -12
+      vertex -26 25 -10
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 25 -26 -12
+      vertex 26 25 -12
+      vertex 26 -25 -12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 25 -26 -12
+      vertex 25 26 -12
+      vertex 26 25 -12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 -26 -12
+      vertex 25 26 -12
+      vertex 25 -26 -12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 -26 -12
+      vertex -25 26 -12
+      vertex 25 26 -12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -26 -25 -12
+      vertex -25 26 -12
+      vertex -25 -26 -12
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 26 -12
+      vertex -26 -25 -12
+      vertex -26 25 -12
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 25 26 -12
+      vertex -25 26 -10
+      vertex 25 26 -10
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex -25 26 -10
+      vertex 25 26 -12
+      vertex -25 26 -12
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex -26 -25 -12
+      vertex -26 25 -10
+      vertex -26 25 -12
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex -26 25 -10
+      vertex -26 -25 -12
+      vertex -26 -25 -10
+    endloop
+  endfacet
+  facet normal 0.707107 -0.707107 0
+    outer loop
+      vertex 25 -26 -10
+      vertex 26 -25 -12
+      vertex 26 -25 -10
+    endloop
+  endfacet
+  facet normal 0.707107 -0.707107 0
+    outer loop
+      vertex 26 -25 -12
+      vertex 25 -26 -10
+      vertex 25 -26 -12
+    endloop
+  endfacet
+  facet normal 0.707107 0.707107 0
+    outer loop
+      vertex 26 25 -18
+      vertex 25 26 -20
+      vertex 25 26 -18
+    endloop
+  endfacet
+  facet normal 0.707107 0.707107 0
+    outer loop
+      vertex 25 26 -20
+      vertex 26 25 -18
+      vertex 26 25 -20
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 25 26 -18
+      vertex 26 -25 -18
+      vertex 26 25 -18
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 25 26 -18
+      vertex 25 -26 -18
+      vertex 26 -25 -18
+    endloop
+  endfacet
+  facet normal -0 0 1
+    outer loop
+      vertex -25 26 -18
+      vertex 25 -26 -18
+      vertex 25 26 -18
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -25 26 -18
+      vertex -25 -26 -18
+      vertex 25 -26 -18
+    endloop
+  endfacet
+  facet normal -0 0 1
+    outer loop
+      vertex -26 25 -18
+      vertex -25 -26 -18
+      vertex -25 26 -18
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -25 -26 -18
+      vertex -26 25 -18
+      vertex -26 -25 -18
+    endloop
+  endfacet
+  facet normal -0.707107 -0.707107 0
+    outer loop
+      vertex -25 -26 -20
+      vertex -26 -25 -18
+      vertex -26 -25 -20
+    endloop
+  endfacet
+  facet normal -0.707107 -0.707107 0
+    outer loop
+      vertex -26 -25 -18
+      vertex -25 -26 -20
+      vertex -25 -26 -18
+    endloop
+  endfacet
+  facet normal 1 -0 0
+    outer loop
+      vertex 26 -25 -18
+      vertex 26 25 -20
+      vertex 26 25 -18
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 26 25 -20
+      vertex 26 -25 -18
+      vertex 26 -25 -20
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex -25 -26 -20
+      vertex 25 -26 -18
+      vertex -25 -26 -18
+    endloop
+  endfacet
+  facet normal 0 -1 -0
+    outer loop
+      vertex 25 -26 -18
+      vertex -25 -26 -20
+      vertex 25 -26 -20
+    endloop
+  endfacet
+  facet normal -0.707107 0.707107 0
+    outer loop
+      vertex -26 25 -20
+      vertex -25 26 -18
+      vertex -25 26 -20
+    endloop
+  endfacet
+  facet normal -0.707107 0.707107 0
+    outer loop
+      vertex -25 26 -18
+      vertex -26 25 -20
+      vertex -26 25 -18
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 25 -26 -20
+      vertex 26 25 -20
+      vertex 26 -25 -20
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 25 -26 -20
+      vertex 25 26 -20
+      vertex 26 25 -20
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 -26 -20
+      vertex 25 26 -20
+      vertex 25 -26 -20
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 -26 -20
+      vertex -25 26 -20
+      vertex 25 26 -20
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -26 -25 -20
+      vertex -25 26 -20
+      vertex -25 -26 -20
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex -25 26 -20
+      vertex -26 -25 -20
+      vertex -26 25 -20
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 25 26 -20
+      vertex -25 26 -18
+      vertex 25 26 -18
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex -25 26 -18
+      vertex 25 26 -20
+      vertex -25 26 -20
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex -26 -25 -20
+      vertex -26 25 -18
+      vertex -26 25 -20
+    endloop
+  endfacet
+  facet normal -1 -0 0
+    outer loop
+      vertex -26 25 -18
+      vertex -26 -25 -20
+      vertex -26 -25 -18
+    endloop
+  endfacet
+  facet normal 0.707107 -0.707107 0
+    outer loop
+      vertex 25 -26 -18
+      vertex 26 -25 -20
+      vertex 26 -25 -18
+    endloop
+  endfacet
+  facet normal 0.707107 -0.707107 0
+    outer loop
+      vertex 26 -25 -20
+      vertex 25 -26 -18
+      vertex 25 -26 -20
+    endloop
+  endfacet
+endsolid OpenSCAD_Model
