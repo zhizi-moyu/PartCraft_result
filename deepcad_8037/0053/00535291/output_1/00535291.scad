@@ -1,47 +1,22 @@
 
-// Define dimensions for each block
-base_block_width = 50;
-base_block_depth = 50;
-base_block_height = 20;
-
-intermediate_block_width = 40;
-intermediate_block_depth = 40;
-intermediate_block_height = 15;
-
-top_block_width = 30;
-top_block_depth = 30;
-top_block_height = 10;
+// Define dimensions for the blocks
+block_width = 50;  // Width of the blocks
+block_depth = 50;  // Depth of the blocks
+block_height = 20; // Height of the blocks
 
 // Base block
 module base_block() {
-    cube([base_block_width, base_block_depth, base_block_height], center = true);
-}
-
-// Intermediate block
-module intermediate_block() {
-    cube([intermediate_block_width, intermediate_block_depth, intermediate_block_height], center = true);
+    // Original model has a solid rectangular cuboid base block
+    cube([block_width, block_depth, block_height], center = true);
 }
 
 // Top block
 module top_block() {
-    cube([top_block_width, top_block_depth, top_block_height], center = true);
+    // Original model has the same dimensions as the base block
+    cube([block_width, block_depth, block_height], center = true);
 }
 
-// Assemble the model
-module flexible_coupling() {
-    // Layer 3: Base block
-    translate([0, 0, -base_block_height / 2])
-        base_block();
-
-    // Layer 2: Intermediate block
-    translate([0, 0, base_block_height / 2 + intermediate_block_height / 2])
-        intermediate_block();
-
-    // Layer 1: Top block
-    translate([0, 0, base_block_height / 2 + intermediate_block_height + top_block_height / 2])
-        top_block();
-}
-
-// Render the model
-flexible_coupling();
+// Assembly
+translate([0, 0, -block_height / 2]) base_block(); // Position the base block
+translate([0, 0, block_height / 2]) top_block();  // Position the top block directly on top of the base block without any gap
 
