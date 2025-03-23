@@ -28,17 +28,17 @@
   "save_uid": "output.stl",
   "scene_size": {
     "bbox_max": [
-      5.0,
-      5.0,
-      5.0
+      20.0,
+      20.0,
+      30.0
     ],
     "bbox_min": [
-      -5.0,
-      -5.0,
-      -5.0
+      0.0,
+      0.0,
+      0.0
     ]
   },
-  "sha256": "61f12dac8bef1984dfdf738831ce685fe9b24bcb6b9f10c693f1d95a40349bfd",
+  "sha256": "c1ca735db7c3c1cd72ce3aef22a6cb4249ee8e8b4b813d15a6f3db2b544ca970",
   "shape_key_count": 0,
   "vert_count": 8
 }
