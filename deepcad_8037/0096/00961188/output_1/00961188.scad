@@ -3,9 +3,9 @@
 module wedge_shaped_block() {
     // Define the dimensions of the wedge
     base_length = 40;  // Length of the base
-    base_width = 20;   // Width of the base
-    height = 15;       // Height of the wedge
-    top_length = 20;   // Length of the top edge
+    base_width = 15;   // Width of the base (reduced to match original model)
+    height = 20;       // Height of the wedge (increased to match original model)
+    top_length = 15;   // Length of the top edge (adjusted for increased tapering)
 
     // Create the wedge using a polyhedron
     polyhedron(
