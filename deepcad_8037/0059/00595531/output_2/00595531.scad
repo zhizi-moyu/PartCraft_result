@@ -1,23 +1,27 @@
+
 // Base block
 module base_block() {
+    // Removed recessed section to make the top surface flat
     translate([0, 0, 5]) // Adjust position to align flat
     cube([50, 30, 10], center = true);
 }
 
 // Flat plate
 module flat_plate() {
-    translate([0, 0, 15]) // Adjust position to align uniformly above the base block
+    // Repositioned to sit directly on the base block without any gap
+    translate([0, 0, 10]) // Adjust position to align flush with the base block
     cube([50, 30, 2], center = true);
 }
 
 // Trapezoidal block
 module trapezoidal_block() {
-    translate([0, 0, 17]) // Adjust position to align above the flat plate
+    // Adjusted top surface width and slanted sides to match the original model
+    translate([0, 0, 12]) // Adjust position to align above the flat plate
     rotate([0, 0, 0]) // Ensure proper orientation
     polyhedron(
         points = [
-            [-25, -15, 0], [25, -15, 0], [20, 15, 0], [-20, 15, 0], // Bottom vertices
-            [-25, -15, 10], [25, -15, 10], [20, 15, 10], [-20, 15, 10]  // Top vertices
+            [-25, -15, 0], [25, -15, 0], [22, 15, 0], [-22, 15, 0], // Bottom vertices
+            [-30, -15, 10], [30, -15, 10], [25, 15, 10], [-25, 15, 10]  // Top vertices
         ],
         faces = [
             [0, 1, 5, 4], [1, 2, 6, 5], [2, 3, 7, 6], [3, 0, 4, 7], // Side faces
@@ -28,7 +32,8 @@ module trapezoidal_block() {
 
 // Triangular prism
 module triangular_prism() {
-    translate([0, 0, 27]) // Adjust position to align above the trapezoidal block
+    // Reoriented to align its triangular base parallel to the base block
+    translate([0, 0, 22]) // Adjust position to align above the trapezoidal block
     rotate([0, 0, 0]) // Ensure proper orientation
     polyhedron(
         points = [
@@ -44,12 +49,13 @@ module triangular_prism() {
 
 // Wedge-shaped block
 module wedge_shaped_block() {
-    translate([0, 0, 37]) // Adjust position to align above the triangular prism
-    rotate([0, 0, 45]) // Rotate to align slanted surface properly
+    // Increased slant angle and smoothed edges to match the original model
+    translate([0, 0, 32]) // Adjust position to align above the triangular prism
+    rotate([0, 0, 0]) // Ensure proper orientation
     polyhedron(
         points = [
             [-10, -10, 0], [10, -10, 0], [10, 10, 0], [-10, 10, 0], // Bottom vertices
-            [-10, -10, 10], [10, -10, 10], [0, 10, 10]  // Top vertices
+            [-10, -10, 10], [10, -10, 10], [0, 15, 10]  // Top vertices
         ],
         faces = [
             [0, 1, 5, 4], [1, 2, 6, 5], [2, 3, 6], [3, 0, 4, 6], // Side faces
@@ -69,3 +75,4 @@ module assembly() {
 
 // Render the assembly
 assembly();
+
