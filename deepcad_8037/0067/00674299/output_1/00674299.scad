@@ -1,25 +1,20 @@
 
-// Parameters for the rectangular plate
-plate_width = 20;  // Width of the rectangular plate
-plate_height = 50; // Height of the rectangular plate
-plate_thickness = 5; // Thickness of the rectangular plate
+// Parameters for the spacer_ring
+ring_outer_diameter = 40; // Outer diameter of the ring
+ring_inner_diameter = 20; // Inner diameter of the ring
+ring_thickness = 3;       // Adjusted thickness of the ring to match the original model
 
-// Function to create a single rectangular plate
-module rectangular_plate() {
-    cube([plate_width, plate_thickness, plate_height], center = true);
+// Spacer Ring Module
+module spacer_ring() {
+    difference() {
+        // Outer cylinder
+        cylinder(h = ring_thickness, d = ring_outer_diameter, $fn = 100);
+        // Inner cylinder (hole)
+        translate([0, 0, -1]) // Slightly offset to ensure clean subtraction
+        cylinder(h = ring_thickness + 2, d = ring_inner_diameter, $fn = 100);
+    }
 }
 
-// Main assembly
-module assembly() {
-    // Positioning the plates in a flat, parallel configuration
-    translate([-30, 0, 0]) rectangular_plate(); // First plate
-    translate([0, 0, 0]) rectangular_plate();   // Second plate
-    translate([30, 0, 0]) rectangular_plate();  // Third plate
-    translate([-30, 0, 50]) rectangular_plate(); // Fourth plate
-    translate([0, 0, 50]) rectangular_plate();   // Fifth plate
-    translate([30, 0, 50]) rectangular_plate();  // Sixth plate
-}
-
-// Call the assembly module to render the model
-assembly();
+// Render the spacer_ring
+spacer_ring();
 
