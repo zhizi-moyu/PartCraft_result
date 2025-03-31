@@ -1,4 +1,3 @@
-
 // Parameters for dimensions
 cylinder_diameter = 20;
 cylinder_height = 40;
@@ -14,6 +13,7 @@ module cylindrical_mount() {
 // Function to create the rectangular tang
 module rectangular_tang() {
     translate([0, 0, cylinder_height / 2])
+    rotate([90, 0, 0])  // Adjust the orientation to be perpendicular 
     translate([-rectangular_width / 2, -rectangular_length / 2, 0])
     cube([rectangular_width, rectangular_length, rectangular_height], center = false);
 }
@@ -28,4 +28,3 @@ module flexible_coupling() {
 
 // Render the model
 flexible_coupling();
-
