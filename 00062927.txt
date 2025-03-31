@@ -1,0 +1,34 @@
+
+        
+            component_list = {
+    'Rectangular Base Plate': {
+        'num': '1',
+        'description': 'A flat, elongated rectangular piece with a length much longer than its width, minimal thickness, featuring two rounded corners and slightly chamfered edges. It contains two circular through-holes near its ends, positioned symmetrically for potential mounting or alignment.'
+    },
+    'Hexagonal Peg': {
+        'num': '1',
+        'description': 'Protruding from the surface of the rectangular base, this peg has a protruding hexagonal shape, providing a precise geometric form that suggests utility for interlocking or alignment. Its design allows it to slot into a complementary recess, facilitating secure attachment with other components.'
+    }
+}
+            modify component list:
+            component_list ={
+    'Rectangular Base Plate': {
+        'num': '1',
+        'description': 'A flat, elongated rectangular piece with a length much longer than its width, minimal thickness, featuring two rounded corners and slightly chamfered edges. It contains two circular through-holes near its ends, positioned symmetrically for potential mounting or alignment.'
+    },
+    'Hexagonal Peg': {
+        'num': '1',
+        'description': 'Protruding from the surface of the rectangular base, this peg has a protruding hexagonal shape, providing a precise geometric form that suggests utility for interlocking or alignment. Its design allows it to slot into a complementary recess, facilitating secure attachment with other components.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['Rectangular Base Plate'],
+        'description': 'The Rectangular Base Plate serves as the foundational base layer of the assembly, lying flat at the bottom.'
+    },
+    'layer_2': {
+        'involved_components': ['Hexagonal Peg'],
+        'description': 'The Hexagonal Peg protrudes vertically from the Rectangular Base Plate, indicating a potential function for alignment or attachment with other components.'
+    }
+}
+        
