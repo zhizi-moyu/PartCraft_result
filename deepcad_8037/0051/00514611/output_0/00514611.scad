@@ -1,25 +1,35 @@
-// Define the dimensions for the components based on the description
 
-// Cylindrical Base Parameters
-cylinder_diameter = 20;    // Diameter of the cylinder
-cylinder_height = 30;      // Height of the cylinder
+// Parameters for the cylindrical segment
+cylinder_diameter = 20;
+cylinder_height = 40;
 
-// Rectangular Extrusion Parameters
-extrusion_width = 10;      // Width of the rectangular extrusion
-extrusion_length = 10;     // Length of the rectangular extrusion
-extrusion_height = 20;     // Height of the rectangular extrusion
+// Parameters for the rectangular prism segment
+rect_prism_width = 10;
+rect_prism_depth = 10;
+rect_prism_height = 20;
 
-// Generate the 3D model
-
-module cylindrical_base() {
-    cylinder(d=cylinder_diameter, h=cylinder_height); // Create the cylindrical base
+// Creating the cylindrical segment
+module cylinder_segment() {
+    cylinder(h = cylinder_height, d = cylinder_diameter, center = true);
 }
 
-module rectangular_extrusion() {
-    translate([-(extrusion_width / 2), -(extrusion_length / 2), -extrusion_height])
-        cube([extrusion_width, extrusion_length, extrusion_height]); // Create the rectangular extrusion and position it at the bottom center of the cylinder
+// Creating the rectangular prism segment
+module rectangular_prism_segment() {
+    translate([0, 0, -rect_prism_height / 2])
+        cube([rect_prism_width, rect_prism_depth, rect_prism_height], center = true);
 }
 
-// Assemble the model
-cylindrical_base(); // Render the cylindrical base
-rectangular_extrusion(); // Attach the rectangular extrusion at the bottom center of the cylindrical base
+// Assembling the components
+module flexible_coupling() {
+    // Layer 1: Place the cylindrical segment on top
+    translate([0, 0, cylinder_height / 2])
+        cylinder_segment();
+    
+    // Layer 2: Attach the rectangular prism segment below the cylinder
+    translate([0, -rect_prism_depth / 2, -rect_prism_height / 2])
+        rectangular_prism_segment();
+}
+
+// Render the model
+flexible_coupling();
+

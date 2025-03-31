@@ -1,32 +1,32 @@
 
             component_list = {
-    'cylindrical_base' : {
+    'cylinder_segment': {
         'num': '1',
-        'description': 'A cylindrical-shaped component with a smooth surface. One end appears flat, while the other end is seamlessly connected to a smaller rectangular extrusion at the center. The cylinder is uniform in diameter with no additional features or textures.'
+        'description': 'A cylindrical segment that forms the top part. It has a smooth round surface with a consistent diameter throughout its height. The top and bottom faces are flat and parallel.'
     },
-    'rectangular_extrusion' : {
+    'rectangular_prism_segment': {
         'num': '1',
-        'description': 'A rectangular-shaped extrusion attached to the bottom center of the cylindrical base. The extrusion has sharp edges and evenly smooth surfaces. It is slightly smaller in height than the cylindrical base. The corners are sharply defined, making the piece geometrically precise.'
+        'description': 'A rectangular prism segment attached perpendicularly to the base of the cylindrical segment. It has a rectangular cross-section with flat surfaces on all sides.'
     }
 }
             component_list = {
-    'cylindrical_base' : {
+    'cylinder_segment': {
         'num': '1',
-        'description': 'A cylindrical-shaped component with a smooth surface. One end appears flat, while the other end is seamlessly connected to a smaller rectangular extrusion at the center. The cylinder is uniform in diameter with no additional features or textures.'
+        'description': 'A cylindrical segment that forms the top part. It has a smooth round surface with a consistent diameter throughout its height. The top and bottom faces are flat and parallel.'
     },
-    'rectangular_extrusion' : {
+    'rectangular_prism_segment': {
         'num': '1',
-        'description': 'A rectangular-shaped extrusion attached to the bottom center of the cylindrical base. The extrusion has sharp edges and evenly smooth surfaces. It is slightly smaller in height than the cylindrical base. The corners are sharply defined, making the piece geometrically precise.'
+        'description': 'A rectangular prism segment attached perpendicularly to the base of the cylindrical segment. It has a rectangular cross-section with flat surfaces on all sides.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['cylindrical_base'],
-        'description': 'The cylindrical base forms the upper part of the model, serving as the main structural component.'
+        'involved_components': ['cylinder_segment'],
+        'description': 'The cylindrical segment forms the top part of the model.'
     },
     'layer_2': {
-        'involved_components': ['rectangular_extrusion'],
-        'description': 'The rectangular extrusion is attached at the bottom center of the cylindrical base, extending downwards.'
+        'involved_components': ['rectangular_prism_segment'],
+        'description': 'The rectangular prism segment is attached perpendicularly to the base of the cylindrical segment.'
     }
 }
         
