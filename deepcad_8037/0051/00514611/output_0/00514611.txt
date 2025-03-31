@@ -1,32 +1,34 @@
 
+        
             component_list = {
-    'cylindrical_mount': {
+    'cylindrical_body': {
         'num': '1',
-        'description': 'A cylindrical block forming the main body of the component. It has a smooth, machined surface with a consistent diameter and height, topped with a flat, circular end. The mount allows for stable placement on a flat surface and serves as a holder for the protruding feature.'
+        'description': 'This is a solid, smooth cylindrical component with a uniform diameter along its height. The surface is matte white, clean without ridges or grooves. Its length is slightly greater than its diameter, making it appear elongated vertically.'
     },
-    'rectangular_tang': {
+    'rectangular_projection': {
         'num': '1',
-        'description': 'An elongated rectangular prism that extends perpendicularly from the middle of the cylindrical mount. It has sharp, well-defined edges and a uniform cross-section, making it suitable for precise insertion or alignment within complementary slots or channels.'
+        'description': 'This is a rectangular-shaped extension that protrudes perpendicularly from one end of the cylindrical body. The dimensions of this projection are shorter in height compared to the cylindrical body but match its smooth matte white finish. The overall appearance is slender and precise, with sharp edges to define the corners clearly.'
     }
 }
+            modify component list:
             component_list = {
-    'cylindrical_mount': {
+    'cylindrical_body': {
         'num': '1',
-        'description': 'A cylindrical block forming the main body of the component. It has a smooth, machined surface with a consistent diameter and height, topped with a flat, circular end. The mount allows for stable placement on a flat surface and serves as a holder for the protruding feature.'
+        'description': 'This is a solid, smooth cylindrical component with a uniform diameter along its height. The surface is matte white, clean without ridges or grooves. Its length is slightly greater than its diameter, making it appear elongated vertically.'
     },
-    'rectangular_tang': {
+    'rectangular_projection': {
         'num': '1',
-        'description': 'An elongated rectangular prism that extends perpendicularly from the middle of the cylindrical mount. It has sharp, well-defined edges and a uniform cross-section, making it suitable for precise insertion or alignment within complementary slots or channels.'
+        'description': 'This is a rectangular-shaped extension that protrudes perpendicularly from one end of the cylindrical body. The dimensions of this projection are shorter in height compared to the cylindrical body but match its smooth matte white finish. The overall appearance is slender and precise, with sharp edges to define the corners clearly.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['cylindrical_mount'],
-        'description': 'The cylindrical_mount serves as the base and supports the structure.'
+        'involved_components': ['cylindrical_body'],
+        'description': 'The cylindrical body forms the main vertical structure of the model. It is positioned vertically with a smooth, continuous surface.'
     },
     'layer_2': {
-        'involved_components': ['rectangular_tang'],
-        'description': 'The rectangular_tang protrudes perpendicularly from the middle of the cylindrical_mount.'
+        'involved_components': ['rectangular_projection'],
+        'description': 'The rectangular_projection extends perpendicularly from one end of the cylindrical body. It protrudes horizontally from the side of the cylindrical body, maintaining a seamless connection with matching finishes.'
     }
 }
         
