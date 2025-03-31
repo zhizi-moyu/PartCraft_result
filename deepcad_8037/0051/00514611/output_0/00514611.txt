@@ -1,0 +1,32 @@
+
+            component_list = {
+    'cylindrical_base' : {
+        'num': '1',
+        'description': 'A cylindrical-shaped component with a smooth surface. One end appears flat, while the other end is seamlessly connected to a smaller rectangular extrusion at the center. The cylinder is uniform in diameter with no additional features or textures.'
+    },
+    'rectangular_extrusion' : {
+        'num': '1',
+        'description': 'A rectangular-shaped extrusion attached to the bottom center of the cylindrical base. The extrusion has sharp edges and evenly smooth surfaces. It is slightly smaller in height than the cylindrical base. The corners are sharply defined, making the piece geometrically precise.'
+    }
+}
+            component_list = {
+    'cylindrical_base' : {
+        'num': '1',
+        'description': 'A cylindrical-shaped component with a smooth surface. One end appears flat, while the other end is seamlessly connected to a smaller rectangular extrusion at the center. The cylinder is uniform in diameter with no additional features or textures.'
+    },
+    'rectangular_extrusion' : {
+        'num': '1',
+        'description': 'A rectangular-shaped extrusion attached to the bottom center of the cylindrical base. The extrusion has sharp edges and evenly smooth surfaces. It is slightly smaller in height than the cylindrical base. The corners are sharply defined, making the piece geometrically precise.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['cylindrical_base'],
+        'description': 'The cylindrical base forms the upper part of the model, serving as the main structural component.'
+    },
+    'layer_2': {
+        'involved_components': ['rectangular_extrusion'],
+        'description': 'The rectangular extrusion is attached at the bottom center of the cylindrical base, extending downwards.'
+    }
+}
+        
